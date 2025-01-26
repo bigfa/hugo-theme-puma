@@ -7,26 +7,27 @@
                 {{ .Title }}
             </h2>
         </header>
-        {{ range .Pages.ByPublishDate.Reverse.GroupByDate "2006" }}
-        {{ if (where .Pages "Section" "post") }}
-        <h2 class="archive--title__year">{{ .Key }}</h2>
-        {{ range .Pages.ByPublishDate.Reverse.GroupByDate "January" }}
-        <h3 class="archive--title__month">{{ .Key }}</h3>
-        <ul class="archive--list">
-            {{ range ((where .Pages "Section" "post")) }}
-            <li class="archive--item">
-                <div class="archive--title">
-                    <a href="{{ .RelPermalink }}">
-                        {{ .Title }}
-                    </a>
-                </div>
-                <div class="archive--meta">{{ .PublishDate.Format "Jan 02" }}</div>
-            </li>
+        <div class="fancy-archive">
+            {{ range .Pages.ByPublishDate.Reverse.GroupByDate "2006" }}
+            {{ if (where .Pages "Section" "post") }}
+            <div data-year="{{ .Key }}" class="archive-year">
+                {{ range .Pages.ByPublishDate.Reverse.GroupByDate "January" }}
+                <h3 class="archive-month">{{ .Key }}</h3>
+                <ul class="fancy-ul">
+                    {{ range ((where .Pages "Section" "post")) }}
+                    <li>
+                        <a href="{{ .RelPermalink }}">
+                            {{ .Title }}
+                        </a>
+                        <em>({{ .Date.Format "01-02" }})</em>
+                    </li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+            </div>
             {{ end }}
-        </ul>
-        {{ end }}
-        {{ end }}
-        {{ end }}
+            {{ end }}
+        </div>
     </section>
 </div>
 {{ end }}

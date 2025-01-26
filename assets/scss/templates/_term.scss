@@ -80,3 +80,16 @@
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+.archive--tagList {
+    display: flex;
+    flex-wrap: wrap;
+}
+.archive--tagItem {
+    margin: 10px;
+    background-color: var(--puma-background-gray-lightest);
+    padding: 3px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--puma-text-gray-light);
+}

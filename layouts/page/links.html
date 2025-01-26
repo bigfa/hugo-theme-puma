@@ -11,18 +11,20 @@
                     .Date.Format "2006-01-02 15:04:01" }}</time>
             </div>
         </header>
-        <div class="template--linksWrap">
-            <ul class="link-items">
-                {{ range .Params.links }}
-                <li class="link-item">
-                    <a class="link-item-inner effect-apollo" href="{{ .link }}" title="Just a blog" target="_blank">
-                        <span class="sitename"><strong>{{ .title }}</strong>{{ .description }}</span>
-                    </a>
-                </li>
-                {{ end }}
-            </ul>
-        </div>
-        <div class="graph u-marginBottom30">
+        <ul class="link-items">
+            {{ range .Params.links }}
+            <li class="link-item">
+                <a class="link-item-inner" href="{{ .link }}" target="_blank">
+                    <img alt=""
+                        src="https://secure.gravatar.com/avatar/f260358d45e57f2ebe7084a71ab785fb?s=48&amp;d=mm&amp;r=g"
+                        srcset="https://secure.gravatar.com/avatar/f260358d45e57f2ebe7084a71ab785fb?s=96&amp;d=mm&amp;r=g 2x"
+                        class="avatar avatar-48 photo" height="48" width="48" loading="lazy" decoding="async">
+                    <span class="sitename"><strong>{{ .title }}</strong>{{ .description }}</span>
+                </a>
+            </li>
+            {{ end }}
+        </ul>
+        <div class="grap u-marginBottom30">
             {{ .Content }}
         </div>
     </section>

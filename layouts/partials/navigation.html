@@ -5,6 +5,16 @@
 			</a>
 		</h1>
 		<p class="site-description">just another wordpress site</p>
+		<form method="get" class="search-form" action="/search">
+			<input type="search" class="search-field" placeholder="输入内容按回车搜索" value="" name="s">
+		</form>
+		{{ if .Site.Params.footer_sns }}
+		<div class=site--footer__sns>
+			{{ partial "sns.html" . }}
+		</div>
+		{{ else }}
+		Made with 💗
+		{{ end }}
 	</div>
 </header>
 {{ if len $.Site.Menus }}

@@ -666,68 +666,11 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
 
 .template--map {
     padding: 50px 0 50px;
-    .hero--title {
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-image: linear-gradient(90deg, #007cf0, #00dfd8);
-        text-align: center;
-        font-size: 26px;
-        font-weight: bold;
-    }
 }
 
 .footer-map {
     border: 0;
     margin-top: 40px;
-}
-
-.template--links {
-    .hero--title {
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-image: linear-gradient(90deg, #007cf0, #00dfd8);
-        text-align: center;
-        font-size: 26px;
-        font-weight: bold;
-    }
-}
-
-.template--linksWrap {
-    padding: 50px 0;
-}
-
-.link-items {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    list-style: none;
-}
-
-.link-item {
-    border-radius: 10px;
-    padding: 15px;
-    .sitename {
-        font-size: 12px;
-        color: var(--farallon-text-gray);
-        display: flex;
-        flex-direction: column;
-        line-height: 1.5;
-        strong {
-            font-size: 16px;
-            color: var(--farallon-text-color);
-            margin-bottom: 10px;
-        }
-    }
-    &:hover {
-        background-color: #fafafa;
-        background: linear-gradient(
-            89.99999999999999deg,
-            rgba(255, 233, 244, 0.3) 0%,
-            rgba(234, 243, 255, 0.5) 100%
-        );
-    }
 }
 
 .markerPro--post {
@@ -1306,10 +1249,6 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
             margin-right: 5px;
         }
     }
-
-    &--meta {
-        font-family: onestregular;
-    }
 }
 
 .db {
@@ -1318,11 +1257,11 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
         --db-item-height: 215px;
         --db-music-width: 150px;
         --db-music-height: 150px;
-        --db-primary-color: var(--farallon-hover-color);
-        --db-background-white: var(--farallon-background-white);
-        --db-background-gray: var(--farallon-background-gray);
-        --db-border-color: var(--farallon-border-color);
-        --db-text-light: var(--farallon-text-light);
+        --db-primary-color: var(--puma-hover-color);
+        --db-background-white: var(--puma-background-white);
+        --db-background-gray: var(--puma-background-gray);
+        --db-border-color: var(--puma-border-color);
+        --db-text-light: var(--puma-text-light);
     }
 
     &--nav {
@@ -1456,11 +1395,11 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
 
 .doulist-item {
     margin: 30px 0;
-    color: var(--hera-text-gray);
-    border: 1px solid var(--hera-border-color);
+    color: var(--puma-text-gray);
+    border: 1px solid var(--puma-border-color);
     border-radius: 4px;
     &:hover {
-        box-shadow: 0 3px 12px var(--hera-border-color-light);
+        box-shadow: 0 3px 12px var(--puma-border-color-light);
     }
 
     .doulist-subject {
@@ -1561,7 +1500,7 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
 .db--date {
     position: relative;
     font-size: 20px;
-    color: var(--hera-text-light);
+    color: var(--puma-text-light);
     font-weight: 900;
     line-height: 1;
     &:before {
@@ -1572,7 +1511,7 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
         left: -10px;
         width: 3.4em;
         z-index: -1;
-        background: var(--hera-hover-color);
+        background: var(--puma-hover-color);
         opacity: 0.3;
         transform: skew(-35deg);
         transition: opacity 0.2s ease;
@@ -1592,7 +1531,7 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
     display: flex;
     align-items: center;
     padding: 15px 0;
-    border-bottom: 1px dotted var(--hera-border-color);
+    border-bottom: 1px dotted var(--puma-border-color);
     font-size: 14px;
     color: rgba(0, 0, 0, 0.55);
     &:last-child {
@@ -1656,7 +1595,7 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
 
     &__month {
         font-size: 14px;
-        color: var(--hera-text-light);
+        color: var(--puma-text-light);
         font-weight: 900;
     }
 }
@@ -1699,7 +1638,7 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--hera-background-gray);
+    background: var(--puma-background-gray);
     border-radius: 10px;
     padding: 30px 0 0;
     flex-direction: column;
@@ -1724,12 +1663,12 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
 .good--name {
     font-size: 14px;
     padding-bottom: 10px;
-    color: var(--hera-text-color);
+    color: var(--puma-text-color);
     margin-top: 10px;
     line-height: 1.4;
     width: 92%;
     .brand {
-        color: var(--hera-text-gray-lightest);
+        color: var(--puma-text-gray-lightest);
     }
 }
 

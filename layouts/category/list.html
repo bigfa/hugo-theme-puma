@@ -6,20 +6,20 @@
                 {{ .Title }}
             </h2>
         </header>
-        {{ $data := .Data }}
-        {{ range $key, $value := .Data.Terms.ByCount }}
-        <div class="category--item">
-            {{ if $value.Page.Params.cover }}
-            <img src="{{ $value.Page.Params.cover }}" class="category--cover">
+        <div class="collectionCard">
+            {{ $data := .Data }}
+            {{ range $key, $value := .Data.Terms.ByCount }}
+            <a class="collectionCard--item" href="{{ $value.Page.Permalink }}" data-count="{{ $value.Count }}">
+                {{ if $value.Page.Params.cover }}
+                <img src="{{ $value.Page.Params.cover }}" class="collectionCard--image">
+                {{ end }}
+                <div class="collectionCard--meta">
+                    <div class="collectionCard--title">{{ $value.Page.Title }}</div>
+                    <div class="collectionCard--description">{{ $value.Page.Params.description }}</div>
+                </div>
+            </a>
             {{ end }}
-            <div class="category--content">
-                <a href="{{ $value.Page.Permalink }}">
-                    {{ $value.Page.Title }}<span>({{ $value.Count }})</span>
-                </a>
-                <div class="category--desc">{{ $value.Page.Params.description }}</div>
-            </div>
         </div>
-        {{ end }}
     </section>
 </div>
 {{ end }}
