@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+<div class="layoutSingleColumn u-paddingTop50">
+    <h2 class="page--headline">{{ .Title }}</h2>
+    <div class="good--list">
+        {{ range .Params.faves }}
+        <div class="good--item">
+            <div class="img-spacer">
+                <img src="{{ .cover }}">
+            </div>
+            <div class="good--name">
+                <div class="brand">{{ .brand }} · {{ .cat }}</div>
+                {{ .title }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+    <div class="graph u-marginBottom30">
+        {{ .Content }}
+    </div>
+</div>
+
+{{ end }}

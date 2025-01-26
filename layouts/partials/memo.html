@@ -1,0 +1,11 @@
+<article class="block block--inset block--list" itemtype="http://schema.org/Article" itemscope="itemscope">
+    <a href="{{ .Permalink }}">
+        {{ $logo := resources.Get "images/avatar.jpeg" }}
+        <div class="post-status u-clearfix"><img src="{{ $logo.RelPermalink }}" class="avatar" width="48" height="48" />
+            <p>{{ .Summary | plainify | truncate 60 }}</p>
+        </div>
+        <div class="status-footer">
+            <span> likes . 0 replies.</span>
+        </div>
+    </a>
+</article>

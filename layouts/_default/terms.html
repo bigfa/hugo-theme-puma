@@ -1,0 +1,17 @@
+{{ define "main" }}
+<header class="tag--header">
+    <h1 class="page--headline">{{.Title}}</h1>
+</header>
+<section class="layoutSingleColumn">
+    <div class="archive--tagList">
+        {{ $data := .Data }}
+        {{ range $key, $value := .Data.Terms.ByCount }}
+        <span class="archive--tagItem">
+            <a href="{{ $value.Page.Permalink }}">
+                {{ $value.Page.Title }} <span>({{ $value.Count }})</span>
+            </a>
+        </span>
+        {{ end }}
+    </div>
+</section>
+{{ end }}

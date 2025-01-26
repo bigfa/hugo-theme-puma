@@ -1,0 +1,13 @@
+{{ define "main" }}
+<header class="tag--header">
+    <h1 class="post-title">{{.Title}}</h1>
+    {{ if .Params.description }}
+    <div class="taxonomy--description">{{ .Params.description }}</div>
+    {{ end }}
+</header>
+<div class="layoutSingleColumn">
+    {{ range .Data.Pages }}
+    {{ partial "post.html" . }}
+    {{ end }}
+</div>
+{{ end }}

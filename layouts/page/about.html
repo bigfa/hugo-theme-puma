@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+<div class="layoutSingleColumn u-paddingTop50">
+    <h2 class="page--headline">{{ .Title }}</h2>
+    {{ if .IsTranslated }}
+    <div class="translatedCard">
+        <h4>{{ i18n "translations" }}</h4>
+        <ul>
+            {{ range .Translations }}
+            <li>
+                <a href="{{ .Permalink }}">{{ .Lang }}: {{ .Title }}{{ if .IsPage }}{{ end
+                    }}</a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ end }}
+    <div class="graph u-marginBottom30">
+        {{ .Content }}
+    </div>
+</div>
+
+{{ end }}
