@@ -1,7 +1,12 @@
 {{ define "main" }}
 
-<div class="layoutSingleColumn">
-    <div class="page--archive">
+<div class="main-content post--single">
+    <section class="section-body">
+        <header class="u-textAlignCenter">
+            <h2 class="block-title" itemprop="headline">
+                {{ .Title }}
+            </h2>
+        </header>
         {{ range .Pages.ByPublishDate.Reverse.GroupByDate "2006" }}
         {{ if (where .Pages "Section" "post") }}
         <h2 class="archive--title__year">{{ .Key }}</h2>
@@ -22,6 +27,6 @@
         {{ end }}
         {{ end }}
         {{ end }}
-    </div>
+    </section>
 </div>
 {{ end }}

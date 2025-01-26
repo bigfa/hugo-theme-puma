@@ -1,21 +1,25 @@
 {{ define "main" }}
-<header class="tag--header">
-    <h1 class="page--headline">{{.Title}}</h1>
-</header>
-<section class="layoutSingleColumn">
-    {{ $data := .Data }}
-    {{ range $key, $value := .Data.Terms.ByCount }}
-    <div class="category--item">
-        {{ if $value.Page.Params.cover }}
-        <img src="{{ $value.Page.Params.cover }}" class="category--cover">
-        {{ end }}
-        <div class="category--content">
-            <a href="{{ $value.Page.Permalink }}">
-                {{ $value.Page.Title }}<span>({{ $value.Count }})</span>
-            </a>
-            <div class="category--desc">{{ $value.Page.Params.description }}</div>
+<div class="main-content post--single">
+    <section class="section-body">
+        <header class="u-textAlignCenter">
+            <h2 class="block-title" itemprop="headline">
+                {{ .Title }}
+            </h2>
+        </header>
+        {{ $data := .Data }}
+        {{ range $key, $value := .Data.Terms.ByCount }}
+        <div class="category--item">
+            {{ if $value.Page.Params.cover }}
+            <img src="{{ $value.Page.Params.cover }}" class="category--cover">
+            {{ end }}
+            <div class="category--content">
+                <a href="{{ $value.Page.Permalink }}">
+                    {{ $value.Page.Title }}<span>({{ $value.Count }})</span>
+                </a>
+                <div class="category--desc">{{ $value.Page.Params.description }}</div>
+            </div>
         </div>
-    </div>
-    {{ end }}
-</section>
+        {{ end }}
+    </section>
+</div>
 {{ end }}

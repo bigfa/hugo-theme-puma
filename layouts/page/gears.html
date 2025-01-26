@@ -1,23 +1,33 @@
 {{ define "main" }}
 
-<div class="layoutSingleColumn u-paddingTop50">
-    <h2 class="page--headline">{{ .Title }}</h2>
-    <div class="good--list">
-        {{ range .Params.faves }}
-        <div class="good--item">
-            <div class="img-spacer">
-                <img src="{{ .cover }}">
+<div class="main-content post--single" data-id="{{ .File.UniqueID}}">
+    <section class="section-body">
+        <header class="u-textAlignCenter">
+            <h2 class="block-title" itemprop="headline">
+                {{ .Title }}
+            </h2>
+            <div class="block-postMetaWrap">
+                <time datetime='{{.Date.Format "2006-01-02 15:04:01" }}' class="humane--time">{{
+                    .Date.Format "2006-01-02 15:04:01" }}</time>
             </div>
-            <div class="good--name">
-                <div class="brand">{{ .brand }} · {{ .cat }}</div>
-                {{ .title }}
+        </header>
+        <div class="good--list">
+            {{ range .Params.faves }}
+            <div class="good--item">
+                <div class="img-spacer">
+                    <img src="{{ .cover }}">
+                </div>
+                <div class="good--name">
+                    <div class="brand">{{ .brand }} · {{ .cat }}</div>
+                    {{ .title }}
+                </div>
             </div>
+            {{ end }}
         </div>
-        {{ end }}
-    </div>
-    <div class="graph u-marginBottom30">
-        {{ .Content }}
-    </div>
+        <div class="graph u-marginBottom30">
+            {{ .Content }}
+        </div>
+    </section>
 </div>
 
 {{ end }}
