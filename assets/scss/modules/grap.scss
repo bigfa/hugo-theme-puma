@@ -8,12 +8,27 @@
         }
     }
 
-    .puma--dark & {
-        figure {
-            figcaption {
-                color: var(--dark-text-ligth);
-            }
-        }
+    code {
+        padding: 2px 4px;
+        background-color: var(--puma-background-gray);
+        border-radius: 4px;
+        font-size: 14px;
+        color: var(--puma-text-light);
+        font-family: "Courier New", Courier, monospace;
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+
+    pre {
+        padding: 20px;
+        background-color: var(--puma-background-gray);
+        border-radius: 4px;
+        font-size: 14px;
+        color: var(--puma-text-light);
+        overflow-x: auto;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        border-radius: 8px;
     }
 
     ol,
@@ -42,7 +57,7 @@
         margin-bottom: 12px;
         padding-top: 2px;
         &:before {
-            content: '•';
+            content: "•";
             box-sizing: border-box;
             font-size: 14px;
             margin-left: -58px;
@@ -56,7 +71,7 @@
     ol {
         counter-reset: a;
         & > li:before {
-            content: counter(a, decimal) '.';
+            content: counter(a, decimal) ".";
             counter-increment: a;
             padding-right: 12px;
         }
@@ -97,7 +112,7 @@
         border: 0;
         text-align: center;
         &:before {
-            content: '...';
+            content: "...";
             display: inline-block;
             margin-left: 0.6em;
             color: var(--text-gray-color);

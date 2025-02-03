@@ -52,9 +52,9 @@
             </button>
         </div>
         {{ end }}
-        <div class="article--tags u-paddingTop20">
+        <div class="post--keywords">
             {{ range (.GetTerms "tags") }}
-            <a href="{{ .RelPermalink }}" class="artile--tag"><span>#</span>{{ .LinkTitle }}</a>
+            <a href="{{ .RelPermalink }}" class="post--keyword">{{ .LinkTitle }}</a>
             {{ end }}
         </div>
         {{ if .Params.cc }}

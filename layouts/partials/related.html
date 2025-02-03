@@ -2,10 +2,23 @@
 {{ with $related }}
 <div class="related--content">
     <h3>{{ i18n "article.relatedContent" }}</h3>
-    <ul>
+    <div class="related--list">
         {{ range . }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        <div class="related--item"><a href="{{ .RelPermalink }}">
+                {{ if .Content }}
+                {{ $urls := findRE "<img src=\"[^\"|\\\"]*\"" .Content }} {{ if $urls }} {{ $url :=index ($urls) 0 }} {{
+                    $url :=(strings.TrimPrefix "<img src=\"" $url) }}
+{{ $url := strings.TrimRight " \"" $url }} <p><img src="{{ $url }}" class="cover" /></p> {{ end }} {{
+                end }}
+                <div class="title">{{ .Title }}</div>
+                <div class="meta">
+                    <time datetime='{{.Date.Format "2006-01-02 15:04:01" }}' class="humane--time">{{ .Date
+                        | time.Format
+                        ":date_long"
+                        }}</time>
+                </div>
+            </a></div>
         {{ end }}
-    </ul>
+    </div>
 </div>
 {{ end }}
