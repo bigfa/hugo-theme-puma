@@ -275,3 +275,25 @@
         }
     }
 }
+
+.post--single {
+    &__action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0 20px;
+
+        .button--like {
+            svg {
+                fill: var(--puma-text-gray);
+            }
+
+            &:hover,
+            &.is-active {
+                svg {
+                    fill: var(--puma-hover-color);
+                }
+            }
+        }
+    }
+}

@@ -140,6 +140,49 @@
         margin-left: -60px;
         margin-right: -60px;
     }
+
+    &--mixtapeEmbed {
+        a {
+            text-decoration: none !important;
+            box-shadow: none !important;
+            &:hover {
+                color: inherit !important;
+            }
+        }
+        margin-bottom: 25px;
+        border: 1px solid var(--puma-border-color);
+        border-radius: 4px;
+        .mixtapeImage {
+            width: 120px;
+            height: 120px;
+            background-size: cover;
+            flex: 0 0 auto;
+            margin-left: 30px;
+            border-radius: 0 4px 4px 0;
+        }
+        .mixtapeContent {
+            padding: 0 20px;
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .markup--em {
+                font-style: normal;
+                font-size: 14px;
+                line-height: 1.6;
+                color: var(--puma-text-light);
+            }
+            .markup--strong {
+                font-weight: 700;
+                line-height: 1.3;
+                margin-bottom: 5px;
+                &:hover {
+                    color: var(--puma-hover-color);
+                }
+            }
+        }
+        display: flex;
+    }
 }
 
 p.with-img img {

@@ -14,6 +14,10 @@ echo "theme = 'puma'" >> config.toml
 
 ## Release Note
 
+### 0.0.3
+
+-   add inset post shortcode
+
 ### 0.0.2
 
 -   update css vars
