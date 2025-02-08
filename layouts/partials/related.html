@@ -1,11 +1,22 @@
 {{ $related := .Site.RegularPages.Related . | first 5 }}
 {{ with $related }}
-<div class="related--content">
-    <h3>{{ i18n "article.relatedContent" }}</h3>
-    <ul>
+<div class="relatedPost--content">
+    <h3 class="relatedPost--title">{{ i18n "article.relatedContent" }}</h3>
+    <div class="relatedPost">
         {{ range . }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        <div class="relatedPost--item">
+            <a href="{{ .RelPermalink }}">
+                <div class="relatedPost--item__title">
+                    {{ .Title }}
+                </div>
+                <div class="meta">
+                    <time class="humane--time" datetime='{{.Date.Format "2006-01-02 15:04:01" }}'>
+                        {{ .Date.Format "2006-01-02" }}
+                    </time>
+                </div>
+            </a>
+        </div>
         {{ end }}
-    </ul>
+    </div>
 </div>
 {{ end }}

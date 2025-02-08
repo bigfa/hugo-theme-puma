@@ -1,39 +1,3 @@
-@font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/OpenSans-Regular.woff2') format('woff2'),
-        url('../fonts/OpenSans-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/OpenSans-Bold.woff2') format('woff2'),
-        url('../fonts/OpenSans-Bold.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/OpenSans-Light.woff2') format('woff2'),
-        url('../fonts/OpenSans-Light.woff') format('woff');
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/OpenSans-Medium.woff2') format('woff2'),
-        url('../fonts/OpenSans-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -43,21 +7,17 @@ body {
     font: {
         weight: 400;
         style: normal;
-        family: 'Open Sans', PingFang SC, Hiragino Sans GB, Microsoft YaHei, STHeiti,
-            WenQuanYi Micro Hei, Helvetica, Arial, sans-serif;
+        family: "Open Sans", PingFang SC, Hiragino Sans GB, Microsoft YaHei,
+            STHeiti, WenQuanYi Micro Hei, Helvetica, Arial, sans-serif;
         size: 16px;
     }
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    -moz-font-feature-settings: 'liga' on;
-    color: var(--text-main-color);
+    -moz-font-feature-settings: "liga" on;
+    color: var(--puma-text-color);
     line-height: 1.8;
-    background-color: #f0f0f0;
-    &.puma--dark {
-        background-color: #3c3c3c;
-        color: rgba(255, 255, 255, 0.6);
-    }
+    background-color: var(--puma-background-gray);
 }
 
 h1,
@@ -121,16 +81,19 @@ figcaption {
 input[disabled] {
     cursor: default;
     color: rgba(0, 0, 0, 0.8);
-    background-color: var(--text-border-color);
+    background-color: var(--puma-border-color-light);
 }
+
 audio:not([controls]) {
     display: none;
     height: 0;
 }
+
 [hidden],
 template {
     display: none;
 }
+
 svg:not(:root) {
     overflow: hidden;
 }
@@ -144,58 +107,22 @@ svg:not(:root) {
 .u-textAlignCenter {
     text-align: center;
 }
+
 .u-hide {
     display: none;
 }
 
 .surface-content {
-    background-color: #fff;
+    background-color: var(--puma-background-white);
     margin: 60px auto;
     max-width: var(--puma-content-width);
     border-radius: var(--puma-border-radius, 10px);
     overflow: hidden;
-    .puma--dark & {
-        background-color: #262626;
-    }
-}
-
-.backToTop {
-    position: fixed;
-    right: 60px;
-    bottom: 50px;
-    cursor: pointer;
-    transform: translate3d(200px, 0, 0);
-    .icon {
-        fill: var(--puma-text-gray);
-        width: 18px;
-        height: 18px;
-    }
-    transition: 0.5s;
-
-    &.is-active {
-        transform: translate3d(0, 0, 0);
-    }
-
-    &:hover {
-        .icon {
-            fill: var(--primary-color);
-        }
-    }
-    .puma--dark & {
-        .icon {
-            fill: rgba(255, 255, 255, 0.8);
-        }
-        &:hover {
-            .icon {
-                fill: rgba(255, 255, 255, 0.9);
-            }
-        }
-    }
 }
 
 .sep {
     &:before {
-        content: '·';
+        content: "·";
         margin-right: 3px;
         margin-left: 3px;
     }

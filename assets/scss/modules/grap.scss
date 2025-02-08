@@ -1,18 +1,55 @@
 .grap {
     figure {
         margin: 20px -60px;
+
         figcaption {
             font-size: 12px;
-            color: var(--text-gray-color);
+            color: var(--puma-text-gray);
             text-align: center;
         }
     }
 
-    .puma--dark & {
-        figure {
-            figcaption {
-                color: var(--dark-text-ligth);
+    code {
+        background-color: var(--puma-background-gray-light);
+        padding: 2px 5px;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    pre {
+        word-break: break-all;
+        white-space: break-spaces;
+        background-color: var(--puma-background-gray-light);
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .gallery {
+        display: grid;
+        grid-gap: 10px;
+        margin-bottom: 25px;
+        .gallery-item {
+            margin: 0;
+            .gallery-caption {
+                text-align: center;
+                font-size: 12px;
+                color: var(--puma-text-light);
             }
+        }
+
+        &-columns-2,
+        &-columns-4,
+        &-columns-5,
+        &-columns-7,
+        &-columns-8 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &-columns-3,
+        &-columns-6,
+        &-columns-9 {
+            grid-template-columns: repeat(3, 1fr);
         }
     }
 
@@ -41,8 +78,9 @@
         margin-left: 30px;
         margin-bottom: 12px;
         padding-top: 2px;
+
         &:before {
-            content: '•';
+            content: "•";
             box-sizing: border-box;
             font-size: 14px;
             margin-left: -58px;
@@ -55,8 +93,9 @@
 
     ol {
         counter-reset: a;
+
         & > li:before {
-            content: counter(a, decimal) '.';
+            content: counter(a, decimal) ".";
             counter-increment: a;
             padding-right: 12px;
         }
@@ -69,25 +108,13 @@
     }
 
     h3 {
-        color: var(--text-light-color);
+        color: var(--puma-text-light);
         font-size: 20px;
     }
 
-    .puma--dark & {
-        h3 {
-            color: var(--dark-text-ligth);
-        }
-    }
-
     h4 {
-        color: --text-gray-color;
+        color: --puma-text-gray;
         font-size: 18px;
-    }
-
-    .puma--dark & {
-        h4 {
-            color: var(--dark-text-color);
-        }
     }
 
     hr {
@@ -96,23 +123,16 @@
         display: block;
         border: 0;
         text-align: center;
+
         &:before {
-            content: '...';
+            content: "...";
             display: inline-block;
             margin-left: 0.6em;
-            color: var(--text-gray-color);
+            color: var(--puma-text-gray);
             position: relative;
             top: -30px;
             font-size: 28px;
             letter-spacing: 0.6em;
-        }
-    }
-
-    .puma--dark & {
-        hr {
-            &:before {
-                color: var(--dark-text-ligth);
-            }
         }
     }
 
