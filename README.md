@@ -17,6 +17,7 @@ echo "theme = 'puma'" >> config.toml
 ### 0.0.2
 
 -   update css vars
+-   add related post
 
 ### 0.0.1
 
