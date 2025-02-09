@@ -2,7 +2,7 @@
 
 ![](https://static.fatesinger.com/2025/01/10eb5gy4cj9fvxag.png)
 
-Hugo theme
+a single column hugo theme with cloudflare woker support
 
 ## How to use
 
@@ -13,6 +13,11 @@ echo "theme = 'puma'" >> config.toml
 ```
 
 ## Release Note
+
+### 0.0.4
+
+-   add author info
+-   add `blockquote` style
 
 ### 0.0.3
 

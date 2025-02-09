@@ -1,8 +1,6 @@
-# Hugo Theme Puma
+# Hugo 主题 Puma
 
 ![](https://static.fatesinger.com/2025/01/10eb5gy4cj9fvxag.png)
-
-a single column hugo theme with cloudflare woker support
 
 ## 使用方法
 
@@ -13,6 +11,11 @@ echo "theme = 'puma'" >> hugo.toml
 ```
 
 ## 更新日志
+
+### 0.0.4
+
+-   增加作者信息
+-   增加引用样式
 
 ### 0.0.3
 

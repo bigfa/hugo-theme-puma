@@ -77,17 +77,11 @@
             </svg>
         </div>
         {{ end }}
-        {{ range (.GetTerms "categories") }}
-        <div class="postCat--item">
-            {{ if .Params.cover }}
-            <img src="{{ .Params.cover}}" class="cover" />
-            {{ end }}
-            <div class="postCat--content">
-                <a href="{{ .RelPermalink }}" class="artile--category">
-                    {{ .LinkTitle }}
-                </a>
-                <p>{{ .Params.description }}</p>
-            </div>
+        {{ if .Site.Params.showAuthor }}
+        <div class="post--authorInfo">
+            <img src="{{ .Site.Params.authorAvatar }}" class="avatar" height="64" width="64" decoding="async">
+            <div class="author--name">{{ .Site.Params.authorName }}</div>
+            <div class="author--description">{{ .Site.Params.authorDescription }}</div>
         </div>
         {{ end }}
         {{ partial "related.html" . }}
