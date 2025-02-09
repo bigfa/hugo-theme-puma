@@ -14,6 +14,10 @@ echo "theme = 'puma'" >> config.toml
 
 ## Release Note
 
+### 0.0.5
+
+-   fixed status format display error
+
 ### 0.0.4
 
 -   add author info
