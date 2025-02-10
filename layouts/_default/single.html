@@ -35,6 +35,14 @@
         <div class="content grap">
             {{ .Content }}
         </div>
+        <div class="block-footer">
+            By {{ .Site.Params.authorName }} . In {{ range (.GetTerms "categories") }}
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            {{ end }}
+            <div class="block-footer-inner">
+                <span class="article--views"></span>
+            </div>
+        </div>
         {{ if .Site.Params.post_like }}
         <div class="post--single__action">
             <button class="button--like like-btn" aria-label="like the post">

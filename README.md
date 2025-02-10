@@ -14,6 +14,11 @@ echo "theme = 'puma'" >> config.toml
 
 ## Release Note
 
+### 0.0.6
+
+-   fixed comment render error
+-   show post views
+
 ### 0.0.5
 
 -   fixed status format display error

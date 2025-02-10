@@ -1,4 +1,4 @@
-<article class="block--list" data-id="{{ .File.UniqueID}}">
+<article class="block--list articleItem" data-id="{{ .File.UniqueID}}">
     <header class="u-textAlignCenter">
         <h2 class="block-title post-featured" itemprop="headline">
             <a href="{{ .Permalink }}">
@@ -21,7 +21,7 @@
         <p>{{ .Summary | plainify | truncate 160 }}</p>
     </div>
     <div class="block-footer">
-        By bigfa . In {{ range (.GetTerms "categories") }}
+        By {{ .Site.Params.authorName }} . In {{ range (.GetTerms "categories") }}
         <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
         {{ end }}
         <div class="block-footer-inner">

@@ -177,3 +177,40 @@
         color: #c00;
     }
 }
+
+.commentnav {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cnav-item {
+    font-size: 16px;
+    color: var(--puma-text-gray);
+    cursor: pointer;
+    line-height: 32px;
+    fill: var(--puma-text-gray);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+        color: var(--puma-hover-color);
+        fill: var(--puma-hover-color);
+    }
+    .svgIcon {
+        transform: translate3d(0, -1px, 0);
+    }
+    &.disabled {
+        cursor: not-allowed;
+        opacity: 0.25;
+        pointer-events: none;
+    }
+}
+
+.chartPage-verticalDivider {
+    border-right: 1px solid var(--puma-border-color);
+    height: 25px;
+    margin: 0 10px;
+}
