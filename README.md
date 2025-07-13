@@ -14,6 +14,10 @@ echo "theme = 'puma'" >> config.toml
 
 ## Release Note
 
+### 0.0.8
+
+-   Compatible with v0.146.0
+
 ### 0.0.7
 
 -   fixed search error
