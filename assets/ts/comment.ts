@@ -49,7 +49,7 @@ export class farallonComment extends farallonHelper {
         return `<li class="comment parent" itemtype="http://schema.org/Comment" data-id="${item.comment_id}" itemscope="" itemprop="comment" id="comment-${item.comment_id}">
                             <div class="comment-body">
                                 <div class="comment-meta">
-                                        <img src="${item.avatar}" class="avatar"  width=42 height=42 />
+                                        <img src="${item.avatar}" class="avatar" width=42 height=42 alt="${item.comment_author_name}" />
                                     <b class="fn">${item.comment_author_name}</b>
                                     <div class="comment-metadata">                                      
                                             <div class="comment--time" itemprop="datePublished" datetime="${item.comment_date}">${item.comment_date}</div>

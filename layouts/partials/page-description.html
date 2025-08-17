@@ -1,0 +1,4 @@
+{{ with or .Description .Summary site.Params.description | plainify | truncate 60 |
+htmlUnescape -}}
+{{ trim . "\n\r\t " -}}
+{{ end -}}

@@ -30,40 +30,10 @@ article:
         other: 最后更新于
 
     readingTime:
-        other: "阅读时长: {{ .Count }} 分钟"
+        other: "{{ .Count }} 分钟阅读"
 
     views:
         other: " 次浏览"
 
     nocomment:
         other: "还没有评论"
-
-timeFormat:
-    second:
-        other: 秒前
-    seconds:
-        other: 秒前
-    minite:
-        other: 分钟前
-    minites:
-        ohter: 分钟前
-    hour:
-        other: 小时前
-    hours:
-        other: 小时前
-    days:
-        other: 天前
-    day:
-        other: 天前
-    week:
-        other: 周前
-    weeks:
-        other: 周前
-    month:
-        other: 月前
-    months:
-        other: 月前
-    year:
-        other: 年前
-    years:
-        other: 年前

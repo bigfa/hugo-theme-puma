@@ -4,7 +4,7 @@ description = "minimalist"
 homepage = "https://fatesinger.com"
 tags = ["minimalist"]
 features = ["minimalist"]
-min_version = "0.75.0"
+min_version = "0.146.0"
 
 [author]
     name = "bigfa"

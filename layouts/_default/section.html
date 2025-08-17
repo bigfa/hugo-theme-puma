@@ -1,10 +1,8 @@
 {{ define "main" }}
+
 <div class="main-content">
     <header class="archive-header u-textAlignCenter">
         <h1 class="archive-title">{{.Title}}</h1>
-        {{ if .Params.description }}
-        <div class="taxonomy-description">{{ .Params.description }}</div>
-        {{ end }}
     </header>
     {{- $pages := union .RegularPages .Sections }}
     {{- $paginator := .Paginate $pages }}

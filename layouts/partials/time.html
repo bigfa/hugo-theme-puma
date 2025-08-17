@@ -1,0 +1,9 @@
+<time datetime='{{.Date.Format "2006-01-02 15:04:01" }}' itemprop="datePublished">
+    {{ $Year := .Date.Format "2006" }}
+    {{ $NowYear := string time.Now.Year }}
+    {{ if eq $NowYear $Year }}
+    {{ .Date.Format "01-02" }}
+    {{ else }}
+    {{ .Date.Format "2006-01-02" }}
+    {{ end }}
+</time>

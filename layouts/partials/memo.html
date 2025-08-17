@@ -1,14 +1,11 @@
 <article class="block block--inset block--list" itemtype="http://schema.org/Article" itemscope="itemscope">
     <a href="{{ .Permalink }}" class="post-status__link">
-        {{ $logo := resources.Get "images/avatar.jpeg" }}
-        <div class="post-status"><img src="{{ $logo.RelPermalink }}" class="avatar" width="48" height="48" />
-            <time datetime='{{.Date.Format "2006-01-02 15:04:01" }}' class="humane--time">{{ .Date
-                | time.Format
-                ":date_long"
-                }}</time>
+        <div class="post-status">
+            <img src="{{ .Site.Params.authorAvatar }}" class="avatar" width="48" height="48" alt="Author" />
+            {{ partial "time.html" . }}
         </div>
         <div class="block-snippet grap">
-            <p>{{ .Summary | plainify | truncate 60 }}</p>
+            <p>{{ .Summary | plainify | truncate 100 }}</p>
         </div>
     </a>
 </article>

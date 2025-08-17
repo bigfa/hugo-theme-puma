@@ -1,7 +1,8 @@
 <header class="site-header">
 	<div class="header-inner" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
 		<h1 class="site-title" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-			<a href='{{ site.Home.Permalink }}' class="metabar--logo">{{ $.Site.Title }}
+			<a href='{{ site.Home.Permalink }}' class="metabar--logo" title="{{ $.Site.Title }}">
+				{{ $.Site.Title }}
 			</a>
 		</h1>
 		<p class="site-description">{{ .Site.Params.SiteDescription }}</p>
@@ -14,8 +15,6 @@
 		<div class=site--footer__sns>
 			{{ partial "sns.html" . }}
 		</div>
-		{{ else }}
-		Made with 💗
 		{{ end }}
 	</div>
 </header>
@@ -25,7 +24,7 @@
 		{{ range $.Site.Menus.main }}
 		{{ if not .HasChildren }}
 		<li class="menu-item">
-			<a href="{{ .URL }}">{{ .Name }}</a>
+			<a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a>
 		</li>
 		{{ end }}
 		{{ end }}

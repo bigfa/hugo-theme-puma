@@ -59,21 +59,28 @@
         width: 100%;
         font-size: 14px;
         height: 150px;
+        color: var(--puma-text-light);
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    .form-submit {
+        display: flex;
+        align-items: center;
     }
 
     .submit {
         background-color: var(--puma-main-color);
-        border: 2px solid var(--puma-main-color);
-        border-radius: 3px;
-        color: #fff;
+        border: 1px solid var(--puma-main-color);
+        border-radius: 999rem;
+        color: var(--puma-background-white);
         cursor: pointer;
         font-size: 14px;
-        padding: 4px 18px;
-        transition: 0.5s;
+        padding: 8px 25px;
+        font-size: 14px;
 
         &:hover {
-            background-color: var(--puma-main-color);
-            color: var(--puma-background-white);
+            background-color: var(--puma-hover-color);
+            border-color: var(--puma-hover-color);
         }
     }
 
@@ -82,11 +89,12 @@
     .comment-form-url input {
         border: 1px solid var(--puma-border-color-light);
         border-radius: 3px;
-        color: var(--puma-text-gray);
+        color: var(--puma-text-light);
         font-size: 14px;
         height: 30px;
         padding: 0 10px;
         width: 280px;
+        background-color: rgba(0, 0, 0, 0);
     }
 }
 
@@ -213,4 +221,10 @@
     border-right: 1px solid var(--puma-border-color);
     height: 25px;
     margin: 0 10px;
+}
+
+.no--comment {
+    padding: 50px 0;
+    text-align: center;
+    color: var(--puma-text-gray);
 }

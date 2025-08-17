@@ -1,4 +1,3 @@
-import noteDate from "./date.ts";
 import farallonActions from "./action.ts";
 import Douban from "./db.ts";
 import { farallonComment } from "./comment.ts";
@@ -14,11 +13,6 @@ declare global {
         zoom: boolean;
     }
 }
-
-new noteDate({
-    selector: ".humane--time",
-    timeFormat: window.timeFormat,
-});
 
 class noteBase {
     constructor() {

@@ -25,20 +25,7 @@
     window.noComment = '{{ i18n "article.nocomment" }}';
     window.zoom = "{{ .Site.Params.zoom }}";
 </script>
-<script type="text/javascript">
-    window.timeFormat = {
-        second: '{{ i18n "timeFormat.second" }}',
-        seconds: '{{ i18n "timeFormat.seconds" }}',
-        minute: '{{ i18n "timeFormat.minute" }}',
-        minutes: '{{ i18n "timeFormat.minutes" }}',
-        hour: '{{ i18n "timeFormat.hour" }}',
-        hours: '{{ i18n "timeFormat.hours" }}',
-        day: '{{ i18n "timeFormat.day" }}',
-        days: '{{ i18n "timeFormat.days" }}',
-        month: '{{ i18n "timeFormat.month" }}',
-        months: '{{ i18n "timeFormat.months" }}',
-    }
-</script>
+
 {{- $opts := dict "minify" hugo.IsProduction -}}
 {{- $replay := resources.Get "js/comment.min.js" | js.Build $opts -}}
 {{- $script := resources.Get "ts/app.ts" | js.Build $opts -}}

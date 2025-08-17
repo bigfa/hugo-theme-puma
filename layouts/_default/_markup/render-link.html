@@ -10,13 +10,19 @@
 {{ $number := (float $subject.douban_score) }}
 <div class="doulist-item">
     <div class="doulist-subject">
-        <div class="doulist-post"><img decoding="async" referrerpolicy="no-referrer" src="{{ $subject.poster }}"></div>
+        <div class="doulist-post">
+            <img decoding="async" referrerpolicy="no-referrer" src="{{ $subject.poster }}" alt="{{ $subject.name }}">
+        </div>
         <div class="doulist-content">
-            <div class="doulist-title"><a href="{{ $subject.link }}" class="cute" target="_blank"
-                    rel="external nofollow">{{ $subject.name }}</a></div>
-            <div class="rating"><span class="allstardark"><span class="allstarlight"
-                        style="--width: {{ mul $number 10 }}%"></span></span><span class="rating_nums">{{
-                    $subject.douban_score }}</span>
+            <div class="doulist-title">
+                <a href="{{ $subject.link }}" class="cute" target="_blank" rel="external nofollow"
+                    title="{{ $subject.name }}">{{ $subject.name }}</a>
+            </div>
+            <div class="rating">
+                <span class="allstardark">
+                    <span class="allstarlight" style="--width: {{ mul $number 10 }}%"></span>
+                </span>
+                <span class="rating_nums">{{ $subject.douban_score }}</span>
             </div>
             <div class="abstract">{{ $subject.card_subtitle }}</div>
         </div>

@@ -30,40 +30,11 @@ article:
         other: Last update on
 
     readingTime:
-        other: "reading Time: {{ .Count }} min"
+        one: "{{ .Count }} min read"
+        other: "{{ .Count }} mins read"
 
     views:
         other: " views"
 
     nocomment:
         other: "no comment yet"
-
-timeFormat:
-    second:
-        other: sec ago
-    seconds:
-        other: secs ago
-    minite:
-        other: min ago
-    minites:
-        ohter: mins ago
-    hour:
-        other: hour ago
-    hours:
-        other: hours ago
-    days:
-        other: days ago
-    day:
-        other: day ago
-    week:
-        other: week ago
-    weeks:
-        other: week ago
-    month:
-        other: month ago
-    months:
-        other: months ago
-    year:
-        other: year ago
-    years:
-        other: years ago

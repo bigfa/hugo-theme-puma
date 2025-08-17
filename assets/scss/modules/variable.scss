@@ -43,8 +43,6 @@
 
 @media (prefers-color-scheme: dark) {
     .auto {
-        --puma-main-color: rgba(253, 186, 116, 1);
-        --puma-hover-color: rgba(255, 237, 213, 1);
         --puma-text-color: #a1a1aa;
         --puma-text-light: rgba(161, 161, 170, 1);
         --puma-text-gray: rgba(113, 113, 122, 1);
@@ -79,20 +77,10 @@
         .doulist-item {
             border-color: var(--db-border-color);
         }
-
-        .comment-form {
-            input,
-            textarea {
-                background-color: rgba(63, 63, 70, 0.15);
-                border-color: rgba(63, 63, 70, 1);
-            }
-        }
     }
 }
 
 .dark {
-    --puma-main-color: rgba(253, 186, 116, 1);
-    --puma-hover-color: rgba(255, 237, 213, 1);
     --puma-text-color: #a1a1aa;
     --puma-text-light: rgba(161, 161, 170, 1);
     --puma-text-gray: rgba(113, 113, 122, 1);
@@ -126,14 +114,6 @@
 
     .doulist-item {
         border-color: var(--db-border-color);
-    }
-
-    .comment-form {
-        input,
-        textarea {
-            background-color: rgba(63, 63, 70, 0.15);
-            border-color: rgba(63, 63, 70, 1);
-        }
     }
 }
 
