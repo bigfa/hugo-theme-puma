@@ -14,6 +14,10 @@ echo "theme = 'puma'" >> config.toml
 
 ## Release Note
 
+### 0.1.1
+
+-   add custom pagination
+
 ### 0.1.0
 
 -   style improvements

@@ -1,0 +1,41 @@
+{{ $paginator := $.Paginator }}
+{{ $adjacent_links := 1 }}
+{{ $max_links := (add (mul $adjacent_links 2) 1) }}
+{{ $lower_limit := (add $adjacent_links 1) }}
+{{ $upper_limit := (sub $paginator.TotalPages $adjacent_links) }}
+
+{{ if gt $paginator.TotalPages 1 }}
+<div class="nav-links">
+    {{ $.Scratch.Set "last_printed" 0 }}
+    {{ range $paginator.Pagers }}
+    {{ $show := false }}
+    {{/* Always show first & last */}}
+    {{ if or (eq .PageNumber 1) (eq .PageNumber $paginator.TotalPages) }}
+    {{ $show = true }}
+    {{ else if gt $paginator.TotalPages $max_links }}
+    {{/* Advanced mode */}}
+    {{ if le $paginator.PageNumber $lower_limit }}
+    {{ if le .PageNumber $max_links }}{{ $show = true }}{{ end }}
+    {{ else if ge $paginator.PageNumber $upper_limit }}
+    {{ if gt .PageNumber (sub $paginator.TotalPages $max_links) }}{{ $show = true }}{{ end }}
+    {{ else }}
+    {{ if and ( ge .PageNumber (sub $paginator.PageNumber $adjacent_links) ) ( le .PageNumber (add $paginator.PageNumber
+    $adjacent_links) ) }}
+    {{ $show = true }}
+    {{ end }}
+    {{ end }}
+    {{ else }}
+    {{/* Few pages: show all */}}
+    {{ $show = true }}
+    {{ end }}
+
+    {{ if $show }}
+    {{ if gt (sub .PageNumber ($.Scratch.Get "last_printed")) 1 }}
+    <span class="page-numbers dots">&hellip;</span>
+    {{ end }}
+    <a class="page-numbers{{ if eq . $paginator }} current{{ end }}" href="{{ .URL }}">{{ .PageNumber }}</a>
+    {{ $.Scratch.Set "last_printed" .PageNumber }}
+    {{ end }}
+    {{ end }}
+</div>
+{{ end }}

@@ -15,10 +15,6 @@
         {{ end }}
         {{ end }}
     </div>
-    <div class="posts-nav">
-        {{ range $paginator.Pagers }}
-        <a class="page-numbers{{ if eq . $paginator }} current{{ end }}" href="{{ .URL }}">{{ .PageNumber }}</a>
-        {{ end }}
-    </div>
+    {{ partial "pagination.html" . }}
 </div>
 {{ end }}

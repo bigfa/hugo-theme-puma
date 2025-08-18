@@ -1,7 +1,7 @@
 name = "puma"
 license = "MIT"
 description = "minimalist"
-homepage = "https://fatesinger.com"
+homepage = "https://github.com/bigfa/hugo-theme-puma"
 tags = ["minimalist"]
 features = ["minimalist"]
 min_version = "0.146.0"

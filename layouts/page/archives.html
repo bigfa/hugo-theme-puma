@@ -16,7 +16,7 @@
                 <ul class="fancy-ul">
                     {{ range ((where .Pages "Section" "post")) }}
                     <li>
-                        <a href="{{ .RelPermalink }}">
+                        <a href="{{ .RelPermalink }}" title="{{ .Title }}" aria-label="{{ .Title }}">
                             {{ .Title }}
                         </a>
                         <em>({{ .Date.Format "01-02" }})</em>
