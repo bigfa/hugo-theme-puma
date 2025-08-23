@@ -14,6 +14,10 @@ echo "theme = 'puma'" >> config.toml
 
 ## Release Note
 
+### 0.2.1
+
+-   style improvements
+
 ### 0.2.0
 
 -   style improvements

@@ -16,13 +16,17 @@
         line-height: 1.4;
 
         @media screen and (max-width: 768px) {
-            font-size: 20px;
+            font-size: 22px;
         }
     }
 
     &--meta {
         color: var(--puma-text-light);
         font-size: 14px;
+
+        @media screen and (max-width: 768px) {
+            font-size: 12px;
+        }
 
         a {
             &:hover {

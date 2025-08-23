@@ -18,6 +18,8 @@ class pumaBase {
     constructor() {
         this.initThemeSwitch();
         this.initBack2Top();
+
+        console.log("Theme by bigfa, version is 0.2.1");
     }
 
     initThemeSwitch() {

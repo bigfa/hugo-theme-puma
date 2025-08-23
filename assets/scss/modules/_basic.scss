@@ -118,6 +118,11 @@ svg:not(:root) {
     max-width: var(--puma-content-width);
     border-radius: var(--puma-border-radius, 10px);
     overflow: hidden;
+
+    @media screen and (max-width: 768px) {
+        margin: 0;
+        border-radius: 0;
+    }
 }
 
 .sep {
