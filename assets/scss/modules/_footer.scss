@@ -16,24 +16,24 @@
 
 .fixed--theme {
     position: fixed;
-    right: 20px;
+    right: 0px;
     bottom: 50%;
+    transform: translate3d(0, 50%, 0);
     display: flex;
     height: max-content;
     background-color: var(--puma-background-white);
-    border-radius: 0 10px 0 10px;
+    border-radius: 10px 0 0 10px;
     width: max-content;
     padding: 3px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 0 1px var(--puma-border-color);
-    border-radius: 999rem;
 
     span {
         width: 28px;
         height: 28px;
         cursor: pointer;
-        border-radius: 100%;
+        border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;

@@ -14,7 +14,7 @@ declare global {
     }
 }
 
-class noteBase {
+class pumaBase {
     constructor() {
         this.initThemeSwitch();
         this.initBack2Top();
@@ -113,11 +113,11 @@ class noteBase {
     }
 }
 
-new noteBase();
+new pumaBase();
 
 new farallonActions({
     singleSelector: ".pArticle",
-    articleSelector: ".pBLock--item",
+    articleSelector: ".pBlock--item",
     text: window.viewText,
     actionDomain: window.actionDomain,
 });

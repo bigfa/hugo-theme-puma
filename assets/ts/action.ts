@@ -51,9 +51,11 @@ class farallonActions extends farallonHelper {
             method: "post",
         }).then((res) => {
             res.json().then((data) => {
-                (
-                    document.querySelector(this.viewSelector) as HTMLElement
-                ).innerText = data.views + this.text;
+                if (document.querySelector(this.viewSelector)) {
+                    (
+                        document.querySelector(this.viewSelector) as HTMLElement
+                    ).innerText = data.views + this.text;
+                }
             });
         });
     }

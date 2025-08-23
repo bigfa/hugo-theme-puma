@@ -9,7 +9,7 @@
             {{ partial "time.html" . }}
         </div>
     </header>
-    <div class="pBlock--snippet grap">
+    <div class="pBlock--snippet pGraph">
         {{ if.Site.Params.coverImage }}
         {{ if .Content }}
         {{ $urls := findRE "<img src=\"[^\"|\\\"]*\"" .Content }} {{ if $urls }} {{ $url :=index ($urls) 0 }} {{ $url

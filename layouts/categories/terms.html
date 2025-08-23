@@ -1,6 +1,7 @@
 {{ define "main" }}
 <div class="main-content">
-    <section class="pArticle" data-id="{{ .Params.ID | default .File.UniqueID }}">
+    <section class="pArticle"
+        data-id="{{ with .Params.ID }}{{ . }}{{ else }}{{ with .File }}{{ .UniqueID }}{{ end }}{{ end }}">
         <header class="pArticle--header">
             <h2 class="pArticle--title" itemprop="headline">
                 {{ .Title }}

@@ -23,6 +23,13 @@
     &--meta {
         color: var(--puma-text-light);
         font-size: 14px;
+
+        a {
+            &:hover {
+                text-decoration: underline;
+                color: var(--puma-text-color);
+            }
+        }
     }
 
     &--toc {
@@ -111,41 +118,41 @@
             }
         }
     }
-}
 
-.post--authorInfo {
-    border-top: 1px solid var(--puma-border-color-light);
-    padding-bottom: 25px;
-    padding-top: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    &--authorInfo {
+        border-top: 1px solid var(--puma-border-color-light);
+        padding-bottom: 25px;
+        padding-top: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-    .avatar {
-        border: 1px solid var(--puma-border-color-light);
-        border-radius: 100%;
-        padding: 3px;
-    }
+        .avatar {
+            border: 1px solid var(--puma-border-color-light);
+            border-radius: 100%;
+            padding: 2px;
+            height: 64px;
+            width: 64px;
 
-    .author--name {
-        font-size: 18px;
-        font-weight: 700;
-        line-height: 1.2;
-        margin-bottom: 2px;
-        margin-top: 5px;
-    }
+            @media screen and (max-width: 768px) {
+                width: 36px;
+                height: 36px;
+            }
+        }
 
-    .author--description {
-        color: var(--puma-text-gray);
-        font-size: 14px;
-        line-height: 1.8;
-    }
+        .author--name {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 2px;
+            margin-top: 5px;
+        }
 
-    .author--meta {
-        color: var(--puma-text-light);
-        font-size: 14px;
-        font-style: italic;
-        margin-top: 5px;
+        .author--description {
+            color: var(--puma-text-gray);
+            font-size: 14px;
+            line-height: 1.8;
+        }
     }
 }
 

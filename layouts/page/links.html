@@ -10,7 +10,7 @@
         <div class="pLink--list">
             {{ range .Params.links }}
             <div class="pLink--item">
-                <a class="pLink--url" href="{{ .link }}" target="_blank">
+                <a class="pLink--url" href="{{ .link }}" target="_blank" title="{{ .title }}">
                     <strong>{{ .title }}</strong>
                     <span class="sitename">{{ .description }}</span>
                 </a>

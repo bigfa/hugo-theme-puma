@@ -16,7 +16,8 @@
                 <div class="pArchive--list">
                     {{ range .Pages }}
                     <div class="pArchive--item">
-                        <a href="{{ .RelPermalink }}" title="{{ .Title }}" aria-label="{{ .Title }}">
+                        <a href="{{ .RelPermalink }}" title="{{ .Title }}" aria-label="{{ .Title }}"
+                            class="pArchive--title">
                             {{ .Title }}
                         </a>
                         <span class="pArchive--meta">({{ .Date.Format "01-02" }})</span>

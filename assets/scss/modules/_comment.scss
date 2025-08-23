@@ -23,6 +23,10 @@
         color: var(--puma-background-white);
         font-size: 12px;
         padding: 3px 8px;
+
+        &:hover {
+            background-color: var(--puma-hover-color);
+        }
     }
 }
 
@@ -162,12 +166,11 @@
     padding-bottom: 10px;
 
     .avatar {
-        width: 42px;
-        height: 42px;
+        width: 36px;
+        height: 36px;
     }
 
     .comment-body {
-        border-bottom: 0;
         padding: 20px 0;
     }
 
@@ -208,13 +211,16 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+
     &:hover {
         color: var(--puma-hover-color);
         fill: var(--puma-hover-color);
     }
+
     .svgIcon {
         transform: translate3d(0, -1px, 0);
     }
+
     &.disabled {
         cursor: not-allowed;
         opacity: 0.25;

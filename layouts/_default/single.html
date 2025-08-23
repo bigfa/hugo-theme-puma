@@ -9,13 +9,15 @@
             <div class="pArticle--meta">
                 {{ partial "time.html" . }}
                 <span class="sep"></span>
-                {{ T "article.readingTime" .ReadingTime }}
-                <span class="sep"></span>
                 {{ range (.GetTerms "categories") }}
                 <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                 {{ end }}
+                {{ if .Site.Params.post_view }}
                 <span class="sep"></span>
                 <span class="article--views"></span>
+                {{ end }}
+                <span class="sep"></span>
+                {{ T "article.readingTime" .ReadingTime }}
             </div>
         </header>
         {{ if .IsTranslated }}
@@ -59,15 +61,20 @@
             </button>
         </div>
         {{ end }}
+        {{ if .Params.tags }}
         <div class="pArticle--tags">
             {{ range (.GetTerms "tags") }}
             <a href="{{ .RelPermalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
             {{ end }}
         </div>
+        {{ end }}
         {{ if .Site.Params.showAuthor }}
-        <div class="post--authorInfo">
-            <img src="{{ .Site.Params.authorAvatar }}" class="avatar" height="64" width="64"
-                alt="{{ .Site.Params.authorName }}">
+        <div class="pArticle--authorInfo">
+            {{ with resources.Get "images/avatar.jpg" }}
+            {{ with .Fill "128x128 center" }}
+            <img src="{{ .RelPermalink }}" class="avatar" alt="Author">
+            {{ end }}
+            {{ end }}
             <div class="author--name">{{ .Site.Params.authorName }}</div>
             <div class="author--description">{{ .Site.Params.authorDescription }}</div>
         </div>
