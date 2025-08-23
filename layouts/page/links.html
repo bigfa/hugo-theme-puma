@@ -7,16 +7,17 @@
                 {{ .Title }}
             </h2>
         </header>
-        <ul class="link-items">
+        <div class="pLink--list">
             {{ range .Params.links }}
-            <li class="link-item">
-                <a class="link-item-inner" href="{{ .link }}" target="_blank">
-                    <span class="sitename"><strong>{{ .title }}</strong>{{ .description }}</span>
+            <div class="pLink--item">
+                <a class="pLink--url" href="{{ .link }}" target="_blank">
+                    <strong>{{ .title }}</strong>
+                    <span class="sitename">{{ .description }}</span>
                 </a>
-            </li>
+            </div>
             {{ end }}
-        </ul>
-        <div class="grap u-marginBottom30">
+        </div>
+        <div class="pGraph pArticle--content">
             {{ .Content }}
         </div>
     </section>

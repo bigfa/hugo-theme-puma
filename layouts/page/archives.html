@@ -7,21 +7,22 @@
                 {{ .Title }}
             </h2>
         </header>
-        <div class="fancy-archive">
-            {{ range .Pages.ByPublishDate.Reverse.GroupByDate "2006" }}
-            <div data-year="{{ .Key }}" class="archive-year">
+        <div class="pArchive">
+            {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+            {{ range $pages.ByPublishDate.Reverse.GroupByDate "2006" }}
+            <div data-year="{{ .Key }}" class="pArchive--yearly">
                 {{ range .Pages.ByPublishDate.Reverse.GroupByDate "January" }}
-                <h3 class="archive-month">{{ .Key }}</h3>
-                <ul class="fancy-ul">
+                <h3 class="pArchive--monthly">{{ .Key }}</h3>
+                <div class="pArchive--list">
                     {{ range .Pages }}
-                    <li>
+                    <div class="pArchive--item">
                         <a href="{{ .RelPermalink }}" title="{{ .Title }}" aria-label="{{ .Title }}">
                             {{ .Title }}
                         </a>
-                        <em>({{ .Date.Format "01-02" }})</em>
-                    </li>
+                        <span class="pArchive--meta">({{ .Date.Format "01-02" }})</span>
+                    </div>
                     {{ end }}
-                </ul>
+                </div>
                 {{ end }}
             </div>
             {{ end }}

@@ -12,6 +12,10 @@
     justify-content: center;
     position: relative;
 
+    @media screen and (max-width: 768px) {
+        height: 240px;
+    }
+
     &:before {
         background-color: rgba(0, 0, 0, 0.15);
         bottom: 0;
@@ -40,6 +44,11 @@
             height: 24px;
             opacity: 0.9;
 
+            @media screen and (max-width: 768px) {
+                width: 20px;
+                height: 20px;
+            }
+
             &:hover {
                 fill: var(--puma-hover-color);
             }
@@ -55,31 +64,6 @@
             }
         }
     }
-}
-
-.site-header {
-    text-align: center;
-    background-color: #f0f0f0;
-    background-image: url(../images/banner.jpg);
-    background-position: 50%;
-    background-size: cover;
-    box-sizing: border-box;
-    color: rgba(255, 255, 255, 0.97);
-    height: 380px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-
-    &:before {
-        background-color: rgba(0, 0, 0, 0.15);
-        bottom: 0;
-        content: "";
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
 
     .header-inner {
         position: relative;
@@ -87,10 +71,18 @@
 
     .site-title {
         font-size: 32px;
+
+        @media screen and (max-width: 768px) {
+            font-size: 24px;
+        }
     }
 
     .site-description {
         font-size: 14px;
+
+        @media screen and (max-width: 768px) {
+            font-size: 12px;
+        }
     }
 }
 
@@ -106,38 +98,41 @@
         width: 200px;
         text-align: center;
         font-size: 12px;
+
         &:focus {
             color: #fff;
+
             &::placeholder {
                 color: rgba(255, 255, 255, 0.8);
             }
         }
+
         &::placeholder {
             color: rgba(255, 255, 255, 0.8);
         }
     }
 }
 
-.topNav {
-    &-items {
+.pNav {
+    &--list {
         border-bottom: 1px solid var(--puma-border-color-light);
         font-size: 14px;
         line-height: 50px;
         display: flex;
         justify-content: center;
+    }
 
-        .menu-item {
-            color: var(--puma-text-gray);
-            font-size: 12px;
-            letter-spacing: 1px;
-            margin-right: 8px;
-            margin-left: 8px;
-            position: relative;
-            text-transform: uppercase;
+    &--item {
+        color: var(--puma-text-gray);
+        font-size: 12px;
+        letter-spacing: 1px;
+        margin-right: 8px;
+        margin-left: 8px;
+        position: relative;
+        text-transform: uppercase;
 
-            &:hover {
-                color: var(--puma-main-color);
-            }
+        &:hover {
+            color: var(--puma-main-color);
         }
     }
 }

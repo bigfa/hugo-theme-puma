@@ -18,35 +18,6 @@ class noteBase {
     constructor() {
         this.initThemeSwitch();
         this.initBack2Top();
-        this.initMenu();
-    }
-
-    initMenu() {
-        if (document.querySelector(".menu--icon")) {
-            document
-                .querySelector(".menu--icon")!
-                .addEventListener("click", () => {
-                    document
-                        .querySelector(".site--nav")!
-                        .classList.add("is-active");
-                    document
-                        .querySelector("body")!
-                        .classList.add("menu--actived");
-                });
-        }
-
-        if (document.querySelector(".mask")) {
-            document
-                .querySelector(".mask")!
-                .addEventListener("touchstart", () => {
-                    document
-                        .querySelector(".site--nav")!
-                        .classList.remove("is-active");
-                    document
-                        .querySelector("body")!
-                        .classList.remove("menu--actived");
-                });
-        }
     }
 
     initThemeSwitch() {
@@ -145,8 +116,8 @@ class noteBase {
 new noteBase();
 
 new farallonActions({
-    singleSelector: ".post--single",
-    articleSelector: ".articleItem",
+    singleSelector: ".pArticle",
+    articleSelector: ".pBLock--item",
     text: window.viewText,
     actionDomain: window.actionDomain,
 });

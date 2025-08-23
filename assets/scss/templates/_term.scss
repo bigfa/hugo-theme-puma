@@ -3,28 +3,50 @@
         padding: 30px 0;
         border-bottom: 1px solid var(--puma-border-color-light);
         text-align: center;
+
+        @media screen and (max-width: 768px) {
+            padding: 15px 0;
+        }
     }
 
     &--title {
         font-size: 24px;
         font-weight: bold;
+
+        @media screen and (max-width: 768px) {
+            font-size: 20px;
+        }
     }
 
     &--description {
         font-size: 14px;
         color: var(--puma-text-gray);
         line-height: 1.5;
+
+        @media screen and (max-width: 768px) {
+            font-size: 12px;
+        }
     }
 }
 
-.collectionCard {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 15px;
-    padding-top: 20px;
-    overflow: hidden;
-    position: relative;
-    padding-bottom: 50px;
+.pCategory {
+    &--list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+        padding-top: 20px;
+        overflow: hidden;
+        position: relative;
+        padding-bottom: 50px;
+
+        @media (max-width: 920px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 480px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
 
     &--item {
         transition: 0.5s;
@@ -84,33 +106,23 @@
     }
 }
 
-@media (max-width: 920px) {
-    .template--terms {
-        padding: 50px 20px;
-    }
-
-    .collectionCard {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .collectionCard {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
-
 .archive--tagList {
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 30px;
 }
 .archive--tagItem {
     margin: 10px;
-    background-color: var(--puma-background-gray-lightest);
-    padding: 3px 12px;
+    background-color: var(--puma-background-gray-light);
+    padding: 5px 15px;
     border-radius: 4px;
     font-size: 14px;
     color: var(--puma-text-gray-light);
+
+    &:hover {
+        background-color: var(--puma-hover-color);
+        color: #fff;
+    }
 }
 
 .good--list {

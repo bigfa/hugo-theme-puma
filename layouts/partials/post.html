@@ -10,22 +10,24 @@
         </div>
     </header>
     <div class="pBlock--snippet grap">
+        {{ if.Site.Params.coverImage }}
         {{ if .Content }}
         {{ $urls := findRE "<img src=\"[^\"|\\\"]*\"" .Content }} {{ if $urls }} {{ $url :=index ($urls) 0 }} {{ $url
             :=(strings.TrimPrefix "<img src=\"" $url) }}
 {{ $url := strings.TrimRight " \"" $url }} <p><img src="{{ $url }}" class="cover" alt="{{ .Title }}" /></p> {{ end }}
         {{
         end }}
+        {{ end }}
         <p>{{ .Summary | plainify | truncate 160 }}</p>
+        <p><a href="{{ .Permalink }}" title="{{ .Title }}" class="more-link">Read more</a></p>
     </div>
     <div class="pBlock--footer">
-        By {{ .Site.Params.authorName }} . In {{ range (.GetTerms "categories") }}
+        {{ range (.GetTerms "categories") }}
         <a href="{{ .RelPermalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
         {{ end }}
-        <div class="pBlock--footer-inner">
-            <span class="article--views"></span>
-            <span class="sep"></span>
-            {{ T "article.readingTime" .ReadingTime }}
-        </div>
+        <span class="sep"></span>
+        <span class="article--views"></span>
+        <span class="sep"></span>
+        {{ T "article.readingTime" .ReadingTime }}
     </div>
 </article>

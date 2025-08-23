@@ -1,4 +1,4 @@
-<header class="site-header">
+<header class="pHeader">
 	<div class="header-inner" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
 		<h1 class="site-title" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
 			<a href='{{ site.Home.Permalink }}' class="metabar--logo" title="{{ $.Site.Title }}">
@@ -19,11 +19,11 @@
 	</div>
 </header>
 {{ if len $.Site.Menus }}
-<nav class="topNav">
-	<ul class="topNav-items">
+<nav class="pNav">
+	<ul class="pNav--list">
 		{{ range $.Site.Menus.main }}
 		{{ if not .HasChildren }}
-		<li class="menu-item">
+		<li class="pNav--item">
 			<a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a>
 		</li>
 		{{ end }}
