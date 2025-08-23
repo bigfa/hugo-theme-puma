@@ -1,20 +1,20 @@
-{{ $related := .Site.RegularPages.Related . | first 5 }}
+{{ $related := .Site.RegularPages.Related . | first 6 }}
 {{ with $related }}
-<div class="relatedPost--content">
-    <h3 class="relatedPost--title">{{ i18n "article.relatedContent" }}</h3>
-    <div class="relatedPost">
+<div class="pRelated--area">
+    <h3 class="pRelated--heroTitle">{{ i18n "article.relatedContent" }}</h3>
+    <div class="pRelated--list">
         {{ range . }}
-        <div class="relatedPost--item">
+        <div class="pRelated--item">
             <a href="{{ .RelPermalink }}">
                 {{ if .Content }}
                 {{ $urls := findRE "<img src=\"[^\"|\\\"]*\"" .Content }} {{ if $urls }} {{ $url :=index ($urls) 0 }} {{
                     $url :=(strings.TrimPrefix "<img src=\"" $url) }}
-{{ $url := strings.TrimRight " \"" $url }} <div class="relatedPost--item__img"><img src="{{ $url }}" class="cover"
+{{ $url := strings.TrimRight " \"" $url }} <div class="pRelated--image"><img src="{{ $url }}" class="cover"
                     title="{{ .Title }}" />
         </div> {{ end }} {{
         end }}
-        <div class="relatedPost--item__title">{{ .Title }}</div>
-        <div class="meta">
+        <div class="pRelated--title">{{ .Title }}</div>
+        <div class="pRelated--meta">
             {{ partial "time.html" . }}
             <span class="sep"></span>
             {{ T "article.readingTime" .ReadingTime }}

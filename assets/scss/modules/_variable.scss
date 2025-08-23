@@ -1,7 +1,6 @@
 :root {
-    // --puma-main-color: #27ae60;
-    --puma-main-color: #27ae60; //#4370f5;
-    --puma-hover-color: #0f730c; // #3a5f9a;
+    --puma-main-color: #27ae60;
+    --puma-hover-color: #0f730c;
     --puma-text-color: rgba(0, 0, 0, 0.84);
     --puma-text-light: rgba(0, 0, 0, 0.68);
     --puma-text-gray: rgba(0, 0, 0, 0.6);
@@ -33,12 +32,6 @@
     --db--text-color-light: var(--puma-text-light);
     --db--background-gray: var(--puma-background-gray);
     --db-border-color: var(--puma-border-color);
-
-    .db--genreItem {
-        &:hover {
-            color: var(--puma-backgroud-white);
-        }
-    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -67,16 +60,6 @@
         --db--text-color-light: var(--puma-text-light);
         --db--background-gray: var(--puma-background-gray);
         --db-border-color: var(--puma-border-color);
-
-        .db--genreItem {
-            &:hover {
-                color: var(--puma-backgroud-white);
-            }
-        }
-
-        .doulist-item {
-            border-color: var(--db-border-color);
-        }
     }
 }
 
@@ -105,16 +88,6 @@
     --db--text-color-light: var(--puma-text-light);
     --db--background-gray: var(--puma-background-gray);
     --db-border-color: var(--puma-border-color);
-
-    .db--genreItem {
-        &:hover {
-            color: var(--puma-backgroud-white);
-        }
-    }
-
-    .doulist-item {
-        border-color: var(--db-border-color);
-    }
 }
 
 @font-face {

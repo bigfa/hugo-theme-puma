@@ -1,13 +1,21 @@
 {{ define "main" }}
 
-<div class="main-content post--single" data-id="{{ .File.UniqueID}}">
-    <section class="section-body">
-        <header class="u-textAlignCenter">
-            <h2 class="block-title" itemprop="headline">
+<div class="main-content">
+    <section class="pArticle" data-id="{{ .Params.ID | default .File.UniqueID }}">
+        <header class="pArticle--header">
+            <h2 class="pArticle--title" itemprop="headline">
                 {{ .Title }}
             </h2>
-            <div class="block-postMetaWrap">
+            <div class="pArticle--meta">
                 {{ partial "time.html" . }}
+                <span class="sep"></span>
+                {{ T "article.readingTime" .ReadingTime }}
+                <span class="sep"></span>
+                {{ range (.GetTerms "categories") }}
+                <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                {{ end }}
+                <span class="sep"></span>
+                <span class="article--views"></span>
             </div>
         </header>
         {{ if .IsTranslated }}
@@ -26,24 +34,16 @@
         {{- $TOCEnabled := or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) -}}
         {{- $hasTOC := gt (len .TableOfContents) 32 -}}
         {{ if and $TOCEnabled $hasTOC -}}
-        <details class="toc" open>
+        <details class="pArticle--toc" open>
             <summary class="toc-title">{{ i18n "article.tableOfContents" }}</summary>
             {{ .TableOfContents }}
         </details>
         {{- end }}
-        <div class="content grap">
+        <div class="pArticle--content grap">
             {{ .Content }}
         </div>
-        <div class="block-footer">
-            By {{ .Site.Params.authorName }} . In {{ range (.GetTerms "categories") }}
-            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-            {{ end }}
-            <div class="block-footer-inner">
-                <span class="article--views"></span>
-            </div>
-        </div>
         {{ if .Site.Params.post_like }}
-        <div class="post--single__action">
+        <div class="pArticle--actions">
             <button class="button--like like-btn" aria-label="like the post">
                 <svg class="icon--active" viewBox="0 0 1024 1024" width="32" height="32">
                     <path
@@ -59,9 +59,9 @@
             </button>
         </div>
         {{ end }}
-        <div class="post--keywords">
+        <div class="pArticle--tags">
             {{ range (.GetTerms "tags") }}
-            <a href="{{ .RelPermalink }}" class="post--keyword">{{ .LinkTitle }}</a>
+            <a href="{{ .RelPermalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
             {{ end }}
         </div>
         {{ if .Site.Params.showAuthor }}

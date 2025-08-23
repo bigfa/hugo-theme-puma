@@ -1,15 +1,15 @@
 {{ define "main" }}
 
 <div class="main-content">
-    <header class="archive-header u-textAlignCenter">
-        <h1 class="archive-title">{{.Title}}</h1>
+    <header class="pTerm--header">
+        <h1 class="pTerm--title">{{.Title}}</h1>
         {{ if .Params.description }}
-        <div class="taxonomy-description">{{ .Params.description }}</div>
+        <div class="pTerm--description">{{ .Params.description }}</div>
         {{ end }}
     </header>
     {{- $pages := .Data.Pages }}
     {{- $paginator := .Paginate $pages }}
-    <div class="blockGroup">
+    <div class="pBlock--list">
         {{- range $index, $page := $paginator.Pages }}
         {{ if eq .Type "memo" }}
         {{ partial "memo.html" . }}

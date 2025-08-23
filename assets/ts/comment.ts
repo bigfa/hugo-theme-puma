@@ -6,7 +6,7 @@ interface farallonCommentOptions {
 
 type Comment = {
     comment_id: string;
-    comment_author_name: string;
+    comment_author: string;
     comment_author_url: string;
     comment_date: string;
     comment_content: string;
@@ -26,7 +26,7 @@ export class farallonComment extends farallonHelper {
     dateFormater: any;
     constructor(config: farallonCommentOptions) {
         super();
-        this.postSelector = config.postSelector || ".post--ingle__comments";
+        this.postSelector = config.postSelector || ".pComment--area";
         if (!document.querySelector(this.postSelector)) return;
         this.actionDomain = config.actionDomain;
         this.post_id = (
@@ -41,16 +41,15 @@ export class farallonComment extends farallonHelper {
             ? `<div class="reply"><span class="comment-reply-link u-cursorPointer" onclick="return addComment.moveForm('comment-${
                   item.comment_id
               }', '${item.comment_id}', 'respond', '${
-                  (document.querySelector(
-                      ".post--ingle__comments"
-                  ) as HTMLElement)!.dataset.id
+                  (document.querySelector(this.postSelector) as HTMLElement)!
+                      .dataset.id
               }')">回复</span></div>                            `
             : "";
         return `<li class="comment parent" itemtype="http://schema.org/Comment" data-id="${item.comment_id}" itemscope="" itemprop="comment" id="comment-${item.comment_id}">
                             <div class="comment-body">
                                 <div class="comment-meta">
-                                        <img src="${item.avatar}" class="avatar" width=42 height=42 alt="${item.comment_author_name}" />
-                                    <b class="fn">${item.comment_author_name}</b>
+                                        <img src="${item.avatar}" class="avatar" width=42 height=42 alt="${item.comment_author}" />
+                                    <b class="fn">${item.comment_author}</b>
                                     <div class="comment-metadata">                                      
                                             <div class="comment--time" itemprop="datePublished" datetime="${item.comment_date}">${item.comment_date}</div>
                                             </div>
@@ -101,7 +100,7 @@ export class farallonComment extends farallonHelper {
                             return this.renderComment(item, children);
                         })
                         .join("");
-                    document.querySelector(".commentlist")!.innerHTML = html;
+                    document.querySelector(".pComment--list")!.innerHTML = html;
                 }
             });
         });
@@ -237,7 +236,7 @@ export class farallonComment extends farallonHelper {
                                         ?.remove();
                                 }
                                 document
-                                    .querySelector(".commentlist")
+                                    .querySelector(".pComment--list")
                                     ?.insertAdjacentHTML("beforeend", html);
                             }
 

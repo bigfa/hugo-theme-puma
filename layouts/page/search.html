@@ -1,17 +1,16 @@
 {{ define "main" }}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@8.1.0/themes/reset-min.css"
-    integrity="sha256-2AeJLzExpZvqLUxMfcs+4DWcMwNfpnjUeAAvEtPr0wU=" crossorigin="anonymous">
 <div class="main-content">
-    <header class="archive-header archive-header__search screen-read-text">
+    <header class="pTerm--header">
         <div id="searchbox"></div>
     </header>
-    <div id="hits" class="blockGroup"></div>
+    <div id="hits" class="pBlock--list"></div>
     <div id="pagination"></div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js"
-    integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.60.0/dist/instantsearch.production.min.js"
-    integrity="sha256-9242vN47QUX50UG5Gf5XDO1YREWCEJRyXHofh5fsl24=" crossorigin="anonymous"></script>
+{{/* 本地引用 algolia 与 instantsearch 脚本（需放在 assets/js/ 下） */}}
+{{ $algolia := resources.Get "js/algoliasearch-lite.umd.js" }}
+{{ $instant := resources.Get "js/instantsearch.production.min.js" }}
+<script src="{{ $algolia.RelPermalink }}"></script>
+<script src="{{ $instant.RelPermalink }}"></script>
 <script>
     const searchClient = algoliasearch('{{ .Site.Params.searchAPPID }}', '{{ .Site.Params.searchKey }}');
 
@@ -21,55 +20,104 @@
         insights: false
     });
 
+    // 自定义 hits（无 ais-Hits* 容器）
+    const renderHits = ({ hits, widgetParams }) => {
+        const lngString = '{{ .Site.Language }}';
+        widgetParams.container.innerHTML = (hits.map(hit => {
+            const time = new Date(hit.date);
+            const date = time.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            const uri = hit.uri.replace("/" + lngString + "/", "/");
+            const cover = hit.cover
+                ? `<p><img src="${hit.cover}"  itemprop="image" /></p>`
+                : '';
+            return `<article class="pBlock--item" itemtype="http://schema.org/Article" itemscope="itemscope">
+                <div class="pBlock--header">
+                            <h2 class="pBlock--title" itemprop="headline">
+                                <a href="${hit.url}">${instantsearch.highlight({ attribute: 'title', hit })}</a>
+                            </h2>
+                            <div class="pBlock--postMetaWrap">${date}</div>
+                        </div>
+                        <div class="pBlock--snippet grap">
+                                    ${hit.description || ''}
+                            </div>
+                        </div>
+                    </article>`;
+        }).join('')) || '<div class="pBlock--empty">Make sure all words are spelled correctly.</div>';
+    };
+    const customHits = instantsearch.connectors.connectHits(renderHits);
+
+    // 可选自定义分页（如需去掉默认结构再加）
+    const renderPagination = ({ refine, currentRefinement, nbPages, widgetParams }) => {
+        if (nbPages <= 1) { widgetParams.container.innerHTML = ''; return; }
+        const maxVisible = 5; // 最多显示 5 个数字
+        const first = 0;
+        const last = nbPages - 1;
+        let pages = [];
+        if (nbPages <= maxVisible) {
+            pages = Array.from({ length: nbPages }, (_, i) => i);
+        } else {
+            pages.push(first);
+            const remaining = maxVisible - 2; // 去掉头尾剩余可分配
+            let start = currentRefinement - Math.floor(remaining / 2);
+            let end = currentRefinement + Math.ceil(remaining / 2);
+            if (start <= first + 1) { start = 1; end = start + remaining; }
+            if (end >= last) { end = last - 1; start = end - remaining; }
+            for (let i = start; i <= end; i++) pages.push(i);
+            pages.push(last);
+        }
+        const parts = [];
+        let prev = null;
+        pages.forEach(p => {
+            if (prev !== null && p - prev > 1) parts.push('<span class="dots">…</span>');
+            parts.push(`<span class="page-numbers ${p === currentRefinement ? 'current' : ''}" data-page="${p}">${p + 1}</span>`);
+            prev = p;
+        });
+        widgetParams.container.innerHTML = `<nav class="nav-links nav-links__centered">${parts.join('')}</nav>`;
+        widgetParams.container.querySelectorAll('span[data-page]').forEach(btn => {
+            btn.addEventListener('click', e => {
+                refine(Number(e.currentTarget.dataset.page));
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    };
+    const customPagination = instantsearch.connectors.connectPagination(renderPagination);
+
+    // 自定义搜索框（不使用默认 ais-SearchBox 结构）
+    const renderSearchBox = (renderOptions, isFirstRender) => {
+        const { query, refine, widgetParams } = renderOptions;
+        if (isFirstRender) {
+            widgetParams.container.innerHTML = `
+                <form class="pSearch--form" role="search" novalidate>
+                    <input type="search" id="search-input" class="pSearch--input" placeholder="输入内容后按回车搜索" autocomplete="off" />
+                    <button type="submit" class="pSearch--submit">搜索</button>
+                </form>`;
+            const form = widgetParams.container.querySelector('.pSearch--form');
+            const input = widgetParams.container.querySelector('#search-input');
+            form.addEventListener('submit', e => { e.preventDefault(); refine(input.value); });
+            // 仅在按回车时执行搜索（不实时）
+            input.addEventListener('keydown', e => {
+                if (e.key === 'Enter' && !e.isComposing) {
+                    e.preventDefault();
+                    refine(input.value);
+                }
+            });
+        }
+        const input = widgetParams.container.querySelector('#search-input');
+        if (input && input.value !== query) input.value = query;
+    };
+    const customSearchBox = instantsearch.connectors.connectSearchBox(renderSearchBox);
+
     search.addWidgets([
-        instantsearch.widgets.searchBox({
-            container: '#searchbox',
-            showReset: false,
-            placeholder: 'Search for stories',
-            cssClasses: {
-            },
-            templates: {
-                submit: `<input type="submit" class="search-submit" value="Search">`
-            }
-        }),
-
-        instantsearch.widgets.hits({
-            container: '#hits',
-            templates: {
-                item(hit, { html, components, sendEvent }) {
-                    const time = new Date(hit.date);
-                    const date = time.toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                    });
-                    const lngString = '{{ .Site.Language }}';
-                    const uri = hit.uri.replace("/" + lngString + "/", "/");
-                    const cover = hit.cover ? html`<p><img src="${hit.cover}" class="cover" itemprop="image" /></p>` : '';
-                    return html`<article class="block--list" itemtype="http://schema.org/Article" itemscope="itemscope">
-                        <header class="u-textAlignCenter">
-        <h2 class="block-title post-featured" itemprop="headline">
-            <a href="${uri}">${components.Highlight({ attribute: 'title', hit })}</a>
-        </h2>
-        <div class="block-postMetaWrap">
-            ${date}
-        </div>
-    </header>
-            <div class="block-snippet grap">
-                ${cover}
-          <p>${hit.description}</p>
-
-                    </div>
-                    </article>
-      `;
-                },
-            },
-        })
+        customSearchBox({ container: document.querySelector('#searchbox') }),
+        instantsearch.widgets.configure({ hitsPerPage: 12 }),
+        customHits({ container: document.querySelector('#hits') }),
+        customPagination({ container: document.querySelector('#pagination') })
     ]);
 
     search.start();
-    const queryString = window.location.search;
-    const params = new URLSearchParams(queryString);
-    search.helper.setQuery(params.get("s")).search();
+
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get("s");
+    if (q) search.helper.setQuery(q).search();
 </script>
 {{ end }}

@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <div class="main-content">
-    <div class="blockGroup">
+    <div class="pBlock--list">
         {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
         {{ $paginator := .Paginate ($pages) }}
         {{ range $paginator.Pages }}

@@ -1,22 +1,106 @@
-.post--keyword {
-    border-radius: 3px;
-    color: var(--puma-text-light);
-    font-size: 12px;
-    padding: 5px 10px;
-    margin-right: 10px;
-    background-color: var(--puma-background-gray-light);
-    line-height: 1.6;
+.pArticle {
+    padding-top: 30px;
 
-    &s {
+    &--header {
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+    &--title {
+        font-size: 24px;
+        line-height: 1.4;
+    }
+
+    &--meta {
+        color: var(--puma-text-light);
+        font-size: 14px;
+    }
+
+    &--toc {
+        font-size: 14px;
+        padding: 12px 18px;
+        background-color: var(--puma-background-gray-light);
+        border-radius: 10px;
+        margin-bottom: 20px;
+        color: var(--puma-text-light);
+
+        summary {
+            cursor: pointer;
+        }
+
+        &-title {
+            font-weight: 600;
+        }
+
+        ul {
+            padding-left: 10px;
+            margin-bottom: 10px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            li {
+                &::before {
+                    content: "·";
+                    margin-right: 5px;
+                }
+
+                a {
+                    &:hover {
+                        text-decoration: underline;
+                        color: var(--puma-hover-color);
+                    }
+                }
+
+                & > ul {
+                    margin-left: 10px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    &--tags {
         margin-bottom: 20px;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
         padding-bottom: 10px;
+
+        a {
+            border-radius: 3px;
+            color: var(--puma-text-light);
+            font-size: 12px;
+            padding: 5px 10px;
+            margin-right: 10px;
+            background-color: var(--puma-background-gray-light);
+            line-height: 1.6;
+
+            &:hover {
+                background-color: var(--puma-background-gray);
+            }
+        }
     }
 
-    &:hover {
-        background-color: var(--puma-background-gray);
+    &--actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0 20px;
+
+        .button--like {
+            svg {
+                fill: var(--puma-text-gray);
+            }
+
+            &:hover,
+            &.is-active {
+                svg {
+                    fill: var(--puma-hover-color);
+                }
+            }
+        }
     }
 }
 
@@ -56,34 +140,6 @@
     }
 }
 
-.toc {
-    font-size: 14px;
-    padding: 10px 15px;
-    background-color: var(--puma-background-gray-light);
-    border-radius: 10px;
-    margin-bottom: 20px;
-    summary {
-        cursor: pointer;
-    }
-    &-title {
-        font-weight: 600;
-    }
-    ul {
-        padding-left: 10px;
-        margin-bottom: 10px;
-        li {
-            &::before {
-                content: "·";
-                margin-right: 5px;
-            }
-            & > ul {
-                margin-left: 10px;
-                font-size: 12px;
-            }
-        }
-    }
-}
-
 .translatedCard {
     margin-bottom: 20px;
     font-size: 14px;
@@ -110,145 +166,45 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+
     .count {
         font-size: 14px;
         margin-left: 3px;
         font-weight: bold;
         color: var(--puma-text-gray);
     }
+
     &.is-active {
         svg {
             fill: var(--puma-main-color);
         }
+
         .icon--active {
             display: block;
         }
+
         .icon--default {
             display: none;
         }
+
         .count {
             color: var(--puma-hover-color);
         }
     }
+
     &:hover {
         .count {
             color: var(--puma-hover-color);
         }
     }
+
     .icon--active {
         display: none;
     }
 
-    .icon--block {
-        display: none;
+    .icon--default {
+        display: block;
     }
 }
 
-.article--tags {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 15px;
-    a {
-        color: var(--puma-main-color);
-        margin-right: 10px;
-        span {
-            margin-right: 3px;
-        }
-        font-weight: 500;
-        &:hover {
-            color: var(--puma-hover-color);
-        }
-    }
-}
-
-.relatedPost {
-    padding: 15px 0 25px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 20px;
-
-    &--content {
-        padding-top: 20px;
-    }
-
-    &--title {
-        font-size: 14px;
-        font-weight: 700;
-    }
-
-    &--item {
-        line-height: 1.8;
-
-        &__img {
-            display: flex;
-            align-items: center;
-
-            img {
-                width: 100%;
-                height: 100px;
-                object-fit: cover;
-                border-radius: 3px;
-            }
-        }
-
-        &__title {
-            margin-top: 5px;
-            font-size: 14px;
-            line-height: 1.4;
-
-            &:hover {
-                color: var(--puma-hover-color);
-            }
-        }
-
-        .meta {
-            color: var(--puma-text-light);
-            font-size: 12px;
-        }
-    }
-
-    &--status {
-        color: var(--puma-text-light);
-        font-size: 14px;
-        margin-bottom: 20px;
-
-        p {
-            line-height: 1.6;
-            max-height: 3.2em;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-        }
-
-        .meta {
-            color: var(--puma-text-light);
-            font-size: 12px;
-        }
-    }
-}
-
-.post--single {
-    &__action {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px 0 20px;
-
-        .button--like {
-            svg {
-                fill: var(--puma-text-gray);
-            }
-
-            &:hover,
-            &.is-active {
-                svg {
-                    fill: var(--puma-hover-color);
-                }
-            }
-        }
-    }
-}
+@import "../modules/relatedPost";

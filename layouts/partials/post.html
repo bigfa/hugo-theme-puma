@@ -1,15 +1,15 @@
-<article class="block--list articleItem" data-id="{{ .File.UniqueID}}">
-    <header class="u-textAlignCenter">
-        <h2 class="block-title post-featured" itemprop="headline">
+<article class="pBlock--item" data-id="{{ .File.UniqueID}}">
+    <header class="pBlock--header">
+        <h2 class="pBlock--title" itemprop="headline">
             <a href="{{ .Permalink }}" title="{{ .Title }}">
                 {{ .Title }}
             </a>
         </h2>
-        <div class="block-postMetaWrap">
+        <div class="pBlock--postMetaWrap">
             {{ partial "time.html" . }}
         </div>
     </header>
-    <div class="block-snippet grap">
+    <div class="pBlock--snippet grap">
         {{ if .Content }}
         {{ $urls := findRE "<img src=\"[^\"|\\\"]*\"" .Content }} {{ if $urls }} {{ $url :=index ($urls) 0 }} {{ $url
             :=(strings.TrimPrefix "<img src=\"" $url) }}
@@ -18,11 +18,11 @@
         end }}
         <p>{{ .Summary | plainify | truncate 160 }}</p>
     </div>
-    <div class="block-footer">
+    <div class="pBlock--footer">
         By {{ .Site.Params.authorName }} . In {{ range (.GetTerms "categories") }}
         <a href="{{ .RelPermalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
         {{ end }}
-        <div class="block-footer-inner">
+        <div class="pBlock--footer-inner">
             <span class="article--views"></span>
             <span class="sep"></span>
             {{ T "article.readingTime" .ReadingTime }}

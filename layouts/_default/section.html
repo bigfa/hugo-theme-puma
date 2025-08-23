@@ -1,12 +1,12 @@
 {{ define "main" }}
 
 <div class="main-content">
-    <header class="archive-header u-textAlignCenter">
-        <h1 class="archive-title">{{.Title}}</h1>
+    <header class="pTerm--header">
+        <h1 class="pTerm--title">{{.Title}}</h1>
     </header>
     {{- $pages := union .RegularPages .Sections }}
     {{- $paginator := .Paginate $pages }}
-    <div class="blockGroup">
+    <div class="pBlock--list">
         {{- range $index, $page := $paginator.Pages }}
         {{ if eq .Type "memo" }}
         {{ partial "memo.html" . }}

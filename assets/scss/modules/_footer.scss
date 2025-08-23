@@ -14,42 +14,6 @@
     }
 }
 
-.site--footer {
-    &__sns {
-        display: flex;
-        align-items: center;
-        position: relative;
-        justify-content: center;
-        padding-top: 20px;
-
-        a {
-            margin: 0 12px 0 0;
-            display: flex;
-        }
-
-        svg {
-            fill: #fff;
-            width: 24px;
-            height: 24px;
-            opacity: 0.9;
-
-            &:hover {
-                fill: var(--puma-hover-color);
-            }
-
-            &.sns {
-                fill: none;
-                stroke: #fff;
-
-                &:hover {
-                    stroke: var(--puma-hover-color);
-                    fill: none;
-                }
-            }
-        }
-    }
-}
-
 .fixed--theme {
     position: fixed;
     right: 20px;

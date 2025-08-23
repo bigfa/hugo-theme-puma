@@ -1,9 +1,9 @@
 {{ define "main" }}
 
-<div class="main-content post--single" data-id="{{ .File.UniqueID}}">
-    <section class="section-body">
-        <header class="u-textAlignCenter">
-            <h2 class="block-title" itemprop="headline">
+<div class="main-content">
+    <section class="pArticle" data-id="{{ .Params.ID | default .File.UniqueID }}">
+        <header class="pArticle--header">
+            <h2 class="pArticle--title" itemprop="headline">
                 {{ .Title }}
             </h2>
         </header>
@@ -20,7 +20,7 @@
             </div>
             {{ end }}
         </div>
-        <div class="grap u-marginBottom30">
+        <div class="grap pArticle--content">
             {{ .Content }}
         </div>
     </section>

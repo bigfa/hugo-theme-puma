@@ -4,18 +4,8 @@
 <meta name="description" content='{{ partial "page-description.html" . }}'>
 {{ $styles := resources.Get "scss/app.scss" | toCSS | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
-{{ $favicon := resources.Get "images/favicon.png" }}
-<link type="image/vnd.microsoft.icon" href="{{ $favicon.RelPermalink }}" rel="shortcut icon">
-{{ if .IsPage }}
-<meta property="og:title" content="{{ .Page.Title }}">
-<meta property="og:url" content="{{ .Page.Permalink }}">
-<meta property="og:image" content="{{ .Params.cover}}">
-<meta property="og:description" content='{{ partial "page-description.html" . }}'>
-<meta property="og:type" content="article">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image:src" content="{{ .Params.cover}}">
-<meta name="twitter:title" content="{{ .Page.Title }}">
-<meta name="twitter:description" content='{{ partial "page-description.html" . }}'>
+{{ with resources.Get "images/favicon.png" }}
+<link type="image/vnd.microsoft.icon" href="{{ .RelPermalink }}" rel="shortcut icon">
 {{ end }}
 {{ if .OutputFormats.Get "RSS" }}
 {{ with .OutputFormats.Get "RSS" }}

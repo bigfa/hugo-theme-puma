@@ -1,9 +1,9 @@
 {{ define "main" }}
 
-<div class="main-content post--single">
-    <section class="section-body">
-        <header class="u-textAlignCenter">
-            <h2 class="block-title" itemprop="headline">
+<div class="main-content">
+    <section class="pArticle" data-id="{{ .Params.ID | default .File.UniqueID }}">
+        <header class="pArticle--header">
+            <h2 class="pArticle--title" itemprop="headline">
                 {{ .Title }}
             </h2>
         </header>
@@ -23,12 +23,12 @@
         {{- $TOCEnabled := or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) -}}
         {{- $hasTOC := gt (len .TableOfContents) 32 -}}
         {{ if and $TOCEnabled $hasTOC -}}
-        <details class="toc" open>
+        <details class="pArticle--toc" open>
             <summary class="toc-title">{{ i18n "article.tableOfContents" }}</summary>
             {{ .TableOfContents }}
         </details>
         {{- end }}
-        <div class="content grap">
+        <div class="pArticle--content grap">
             {{ .Content }}
         </div>
     </section>
