@@ -1,5 +1,5 @@
 <div id="comments" class="pComment--area" data-id="{{ .Params.ID | default .File.UniqueID}}">
-    <h3 class="comments-title">共有 <span class="count"></span> 条评论</h3>
+    <h3 class="pComment--heroTitle">共有 <span class="count"></span> 条评论</h3>
     <ol class="commentlist pComment--list">
     </ol>
     <nav class="commentnav u-textAlignCenter"></nav>
@@ -21,9 +21,14 @@
                 <textarea id="comment" name="comment_content" cols="45" rows="8" maxlength="65525"
                     required=""></textarea>
             </p>
-            <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="发表评论">
-                <input type="hidden" name="post_id" value="{{ .File.UniqueID}}" id="comment_post_ID">
+            <p class="form-submit">
+                <input name="submit" type="submit" id="submit" class="submit" value="发表评论">
+                <input type="hidden" name="post_id" value="{{ .Params.ID | default .File.UniqueID }}"
+                    id="comment_post_ID">
                 <input type="hidden" name="comment_parent" id="comment_parent" value="">
+                <input type="hidden" name="post_title" value="{{ .Title }}" id="comment_post_title">
+                <input type="hidden" name="post_link" value="{{ .Permalink | strings.TrimSuffix " /" }}"
+                    id="comment_post_link">
             </p>
         </form>
     </div>

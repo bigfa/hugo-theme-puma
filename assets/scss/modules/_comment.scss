@@ -1,5 +1,46 @@
 .pComment {
     &--area {
+        padding-top: 10px;
+    }
+
+    &--heroTitle {
+        border-bottom: 1px solid var(--puma-border-color-light);
+        font-size: 14px;
+        padding-bottom: 3px;
+    }
+
+    &--body {
+        border-bottom: 1px solid var(--puma-border-color-light);
+        padding: 25px 0;
+        position: relative;
+    }
+
+    &--meta {
+        display: flex;
+        align-items: center;
+
+        .avatar {
+            border-radius: 100%;
+            margin-right: 10px;
+            transition: all 0.5s ease 0s;
+        }
+    }
+
+    &--author {
+        font-size: 14px;
+        color: var(--puma-text-light);
+    }
+
+    &--content {
+        margin-top: 10px;
+        padding-left: 5px;
+        font-size: 14px;
+    }
+
+    &--footer {
+        font-size: 12px;
+        color: var(--puma-text-gray-lightest);
+        padding-top: 5px;
     }
 }
 
@@ -19,10 +60,10 @@
 
     .comment-reply-link {
         background-color: var(--puma-main-color);
-        border-radius: 2px;
+        border-radius: 10px;
         color: var(--puma-background-white);
         font-size: 12px;
-        padding: 3px 8px;
+        padding: 3px 12px;
 
         &:hover {
             background-color: var(--puma-hover-color);
@@ -107,74 +148,28 @@
     }
 }
 
-.comments-title {
-    font-size: 12px;
-    font-weight: 700;
-    padding: 5px 0;
-}
-
-.comment-body,
-.comments-title {
-    border-bottom: 1px solid var(--puma-border-color-light);
-}
-
-.comment-body {
-    padding-bottom: 25px;
-    padding-top: 25px;
-    position: relative;
-}
-
-.comment-meta {
-    font-size: 14px;
-    overflow: hidden;
-    line-height: 1.6;
-
-    .avatar {
-        border-radius: 100%;
-        float: left;
-        margin-right: 10px;
-        transition: all 0.5s ease 0s;
-    }
-
-    .says {
-        display: none;
-    }
-
-    .comment-metadata {
-        color: var(--puma-text-light);
-        font-size: 12px;
-        font-style: normal;
-    }
-}
-
-.comment-content {
-    margin-top: 10px;
-    padding-left: 5px;
-    font-size: 14px;
-}
-
 .responsesWrapper {
     margin-bottom: 30px;
-}
-
-.parent > .children {
-    margin-left: 50px;
 }
 
 .children {
     margin-left: 0px;
     padding-bottom: 10px;
 
+    .parent > & {
+        margin-left: 50px;
+    }
+
     .avatar {
         width: 36px;
         height: 36px;
     }
 
-    .comment-body {
+    .pComment--body {
         padding: 20px 0;
     }
 
-    .comment-content {
+    .pComment--content {
         font-size: 14px;
     }
 }

@@ -27,7 +27,7 @@
             width: 100%;
             height: 100px;
             object-fit: cover;
-            border-radius: 3px;
+            border-radius: 10px;
         }
     }
 
@@ -39,6 +39,7 @@
         margin-top: 5px;
         font-size: 14px;
         line-height: 1.4;
+        padding: 0 5px;
 
         &:hover {
             color: var(--puma-hover-color);
@@ -48,5 +49,6 @@
     &--meta {
         color: var(--puma-text-light);
         font-size: 12px;
+        padding: 0 5px;
     }
 }

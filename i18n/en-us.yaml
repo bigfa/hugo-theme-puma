@@ -11,10 +11,17 @@ translations:
     other: Translations
 
 postsOlder:
-    other: 更早文章
+    other: Older Posts
 
 postsNewer:
-    other: 更新文章
+    other: Newer Posts
+
+search:
+    placeholder:
+        other: Type and enter to search
+
+    submit:
+        other: Search
 
 article:
     back:

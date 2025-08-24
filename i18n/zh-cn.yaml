@@ -16,6 +16,13 @@ postsOlder:
 postsNewer:
     other: 更新文章
 
+search:
+    placeholder:
+        other: 输入内容回车搜索
+
+    submit:
+        other: 搜索
+
 article:
     back:
         other: 返回

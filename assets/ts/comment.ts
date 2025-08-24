@@ -5,7 +5,7 @@ interface farallonCommentOptions {
 }
 
 type Comment = {
-    comment_id: string;
+    comment_ID: string;
     comment_author: string;
     comment_author_url: string;
     comment_date: string;
@@ -39,25 +39,25 @@ export class farallonComment extends farallonHelper {
     renderComment(item: Comment, children: any = "", reply: boolean = true) {
         const replyHtml: string = reply
             ? `<div class="reply"><span class="comment-reply-link u-cursorPointer" onclick="return addComment.moveForm('comment-${
-                  item.comment_id
-              }', '${item.comment_id}', 'respond', '${
+                  item.comment_ID
+              }', '${item.comment_ID}', 'respond', '${
                   (document.querySelector(this.postSelector) as HTMLElement)!
                       .dataset.id
               }')">回复</span></div>                            `
             : "";
-        return `<li class="comment parent" itemtype="http://schema.org/Comment" data-id="${item.comment_id}" itemscope="" itemprop="comment" id="comment-${item.comment_id}">
-                            <div class="comment-body">
-                                <div class="comment-meta">
+        return `<li class="pComment--item parent" itemtype="http://schema.org/Comment" data-id="${item.comment_ID}" itemscope="" itemprop="comment" id="comment-${item.comment_ID}">
+                            <div class="pComment--body">
+                                <div class="pComment--meta">
                                         <img src="${item.avatar}" class="avatar" width=42 height=42 alt="${item.comment_author}" />
-                                    <b class="fn">${item.comment_author}</b>
-                                    <div class="comment-metadata">                                      
-                                            <div class="comment--time" itemprop="datePublished" datetime="${item.comment_date}">${item.comment_date}</div>
-                                            </div>
+                                    <span class="pComment--author">${item.comment_author}</span>
                                     </div>
-                                <div class="comment-content" itemprop="description">
+                                <div class="pComment--content" itemprop="description">
                                     ${item.comment_content}
                                 </div>
                                 ${replyHtml}
+                                <footer class="pComment--footer">
+                                <div class="pComment--time" itemprop="datePublished" datetime="${item.comment_date}">${item.comment_date}</div>
+                                </footer>
                             </div>
                             ${children}
                 </li>`;
@@ -78,11 +78,12 @@ export class farallonComment extends farallonHelper {
                 if (this.total_paged > 1) {
                     this.randerNav();
                 }
-                document.querySelector(".comments-title .count")!.innerHTML =
-                    this.total.toString();
+                document.querySelector(
+                    ".pComment--heroTitle .count"
+                )!.innerHTML = this.total.toString();
                 if (this.total == 0) {
                     document.querySelector(
-                        ".commentlist"
+                        ".pComment--list"
                     )!.innerHTML = `<div class="no--comment">${window.noComment}</div>`;
                     return;
                 } else {

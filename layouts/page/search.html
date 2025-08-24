@@ -88,7 +88,7 @@
         if (isFirstRender) {
             widgetParams.container.innerHTML = `
                 <form class="pSearch--form" role="search" novalidate>
-                    <input type="search" id="search-input" class="pSearch--input" placeholder="输入内容后按回车搜索" autocomplete="off" />
+                    <input type="search" id="search-input" class="pSearch--input" placeholder='{{ i18n "search.placeholder" }}' autocomplete="off" />
                     <button type="submit" class="pSearch--submit">搜索</button>
                 </form>`;
             const form = widgetParams.container.querySelector('.pSearch--form');

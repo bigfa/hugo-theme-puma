@@ -95,3 +95,17 @@
         }
     }
 }
+
+.pError {
+    &--area {
+        padding: 50px 0;
+    }
+
+    &--link {
+        color: var(--puma-text-light);
+
+        &:hover {
+            color: var(--puma-hover-color);
+        }
+    }
+}

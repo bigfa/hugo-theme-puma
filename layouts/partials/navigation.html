@@ -8,7 +8,7 @@
 		<p class="site-description">{{ .Site.Params.SiteDescription }}</p>
 		{{ if .Site.Params.search }}
 		<form method="get" class="search-form" action="{{ site.Home.Permalink }}search">
-			<input type="search" class="search-field" placeholder="输入内容按回车搜索" value="" name="s">
+			<input type="search" class="search-field" placeholder='{{ i18n "search.placeholder" }}' value="" name="s">
 		</form>
 		{{ end }}
 		{{ if .Site.Params.footer_sns }}

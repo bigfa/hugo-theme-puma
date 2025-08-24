@@ -8,9 +8,11 @@
             </h2>
             <div class="pArticle--meta">
                 {{ partial "time.html" . }}
+                {{ if .Params.categories }}
                 <span class="sep"></span>
                 {{ range (.GetTerms "categories") }}
                 <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                {{ end }}
                 {{ end }}
                 {{ if .Site.Params.post_view }}
                 <span class="sep"></span>
